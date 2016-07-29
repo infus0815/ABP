@@ -11,7 +11,7 @@ $(document).ready(function () {
 
 function generatePicker(date) {
 
-    confirmacoes_datas = getDateArray(confirmacoes);
+    confirmacoes_datas = getDateArray(disponibilidade);
     $('#datepicker').datepicker(
         {
             dateFormat: "yy-mm-dd",
@@ -37,12 +37,12 @@ function setStyles(date) {
 
 }
 
-function getDateArray(confirmacoes) {
+function getDateArray(disponibilidade) {
     var arr = [];
 
-    for (var x in confirmacoes) {
-        if($.inArray(confirmacoes[x].confirmacao_data,arr) == -1)
-            arr.push(confirmacoes[x].confirmacao_data);
+    for (var x in disponibilidade) {
+        if($.inArray(disponibilidade[x].data,arr) == -1)
+            arr.push(disponibilidade[x].data);
     }
 
     return arr;
@@ -50,31 +50,31 @@ function getDateArray(confirmacoes) {
 
 function getEquipaData(date) {
     var arr = [];
-    for (var x in confirmacoes) {
-        if(confirmacoes[x].confirmacao_data == date)
-            arr.push(confirmacoes[x].username);
+    for (var x in disponibilidade) {
+        if(disponibilidade[x].data == date)
+            arr.push(disponibilidade[x].username);
     }
 
     return arr;
 
 }
 
-function getEquipaNomeData(date) {
+function getEquipaNomeData(data) {
     var arr = [];
-    for (var x in confirmacoes) {
-        if(confirmacoes[x].confirmacao_data == date)
-            arr.push(confirmacoes[x].nome);
+    for (var x in disponibilidade) {
+        if(disponibilidade[x].data == data)
+            arr.push(disponibilidade[x].nome);
     }
 
     return arr;
 
 }
 
-function setEquipas(date,inst) {
+function setEquipas(data,inst) {
 
-    var date1 = new Date(date);
+    var date = new Date(data);
 
-    var fdate = $.datepicker.formatDate("yy-mm-dd",date1);
+    var fdate = $.datepicker.formatDate("yy-mm-dd",date);
     var equipas_data = getEquipaNomeData(fdate);
 
     var trs = ""
@@ -85,7 +85,6 @@ function setEquipas(date,inst) {
     $('#equipas > tbody').html(trs);
 
     setButton(fdate);
-
 }
 
 
@@ -123,7 +122,7 @@ function registaEquipa(){
             data: fdate
         },
         function(data){
-            confirmacoes = $.parseJSON(data);
+            disponibilidade = $.parseJSON(data);
             generatePicker(fdate);
 
         });
@@ -141,7 +140,7 @@ function removeEquipa(){
             data: fdate
         },
         function(data){
-            confirmacoes = $.parseJSON(data);
+            disponibilidade = $.parseJSON(data);
             generatePicker(fdate);
         });
 }

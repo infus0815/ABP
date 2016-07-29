@@ -16,6 +16,7 @@
 
   
   if (isLoginCorrect($username, $password)) {
+    
     $_SESSION['username'] = $username;
     $_SESSION['success_messages'][] = 'Login successful';
     header('Location: ' . $BASE_URL.'pages/calendar/calendar.php');

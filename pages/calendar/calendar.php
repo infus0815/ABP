@@ -3,9 +3,9 @@
 include_once('../../config/init.php');
 include_once($BASE_DIR .'database/equipa_confirmacao.php');
 
-$confirmacoes = getConfirmacoes();
+$disponibilidade = getDisponibilidade();
 
-$smarty->assign('confirmacoes', $confirmacoes);
+$smarty->assign('disponibilidade', $disponibilidade);
 
 $smarty->display('calendar/calendar.tpl');
 

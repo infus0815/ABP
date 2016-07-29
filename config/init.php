@@ -1,6 +1,6 @@
 <?php
   error_reporting(E_ERROR | E_WARNING); // E_NOTICE by default
-  session_set_cookie_params(3600, '/~lbaw1516',false); //FIXME
+  session_set_cookie_params(3600, '/~APB',false); //FIXME
   session_start();
 
 
@@ -8,11 +8,11 @@
   $BASE_DIR = '/XAMPP/htdocs/ABP/'; //FIXME
   $BASE_URL = 'http://localhost/ABP/'; //FIXME
 
-  $conn = new PDO('pgsql:host=localhost;port=5432;dbname=postgres','postgres',''); //FIXME
+  $conn = new PDO('pgsql:host=localhost;port=5432;dbname=APB','AlexPedro'); //FIXME
   $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $conn->exec('SET SCHEMA \'abp\''); //FIXME?
+  $conn->exec('SET SCHEMA \'public\''); //FIXME?
 
 
   include_once($BASE_DIR . 'lib/smarty/Smarty.class.php');
