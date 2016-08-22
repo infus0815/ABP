@@ -19,8 +19,10 @@
     
     $_SESSION['username'] = $username;
     $_SESSION['success_messages'][] = 'Login successful';
+
     header('Location: ' . $BASE_URL.'pages/calendar/calendar.php');
     exit;
+    
   } else {
     $_SESSION['error_messages'][] = 'Login failed';  
   }

@@ -2,10 +2,10 @@
 
   if($_SESSION['username']) {
   	var_dump($_SESSION);
-    //header('Location: pages/calendar/calendar.php');
+    header('Location: pages/calendar/calendar.php');
   }
   else {
-    header('Location: pages/equipas/login.php');
+    header('Location: pages/presentation/presentation.php');
   }
 
 ?>

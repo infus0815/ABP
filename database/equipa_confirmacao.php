@@ -2,24 +2,28 @@
 
 include_once($BASE_DIR .'database/equipas.php');
 
-function getDisponibilidade() {
+function getDisponibilidade($escalao_id) {
     global $conn;
     $stmt = $conn->prepare("
 SELECT disponibilidade.disponibilidade_id, agenda.data,agenda.agenda_id, agenda.horario, equipa.nome, equipa.username
-FROM disponibilidade 
-JOIN equipa ON(disponibilidade.equipa_id = equipa.equipa_id)
+FROM disponibilidade
+JOIN equipaEscalao ON(disponibilidade.equipaescalao_id = equipaEscalao.equipaescalao_id)
+JOIN equipa ON(equipaEscalao.equipa_id = equipa.equipa_id)
 JOIN agenda ON(agenda.agenda_id = disponibilidade.agenda_id)
+WHERE equipaEscalao.escalao_id = ?
 ");
-    $stmt->execute();
+    $stmt->execute(array($escalao_id));
     return $stmt->fetchAll();
 }
 
 
-function getConfirmacoesByDate($date) {
+function getDisponibilidadeByDate($date) {
     global $conn;
     $stmt = $conn->prepare("
 SELECT disponibilidade.disponibilidade_id, equipa.nome, equipa.username
-FROM disponibilidade JOIN equipa ON(disponibilidade.equipa_id = equipa.equipa_id)
+FROM disponibilidade 
+JOIN equipaEscalao ON(disponibilidade.equipaescalao_id = equipaEscalao.equipaescalao_id)
+JOIN equipa ON(equipaEscalao.equipa_id = equipa.equipa_id)
 JOIN agenda ON(agenda.agenda_id = disponibilidade.agenda_id)
 WHERE agenda.data = ?
 ");
@@ -27,12 +31,12 @@ WHERE agenda.data = ?
     return $stmt->fetchAll();
 }
 
-function getDisponibilidadeId($agenda_id,$equipa_id) {
+function getDisponibilidadeId($agenda_id,$equipaEscalao_id) {
     global $conn;
     $stmt = $conn->prepare("SELECT disponibilidade.disponibilidade_id
                             FROM disponibilidade
-                            WHERE disponibilidade.agenda_id = ? AND disponibilidade.equipa_id = ?" );
-    $stmt->execute(array($agenda_id,$equipa_id));
+                            WHERE disponibilidade.agenda_id = ? AND disponibilidade.equipaescalao_id = ?" );
+    $stmt->execute(array($agenda_id,$equipaEscalao_id));
     return $stmt->fetch();
 }
 
@@ -49,6 +53,15 @@ function getAgendaId($date,$horario) {
     return $stmt->fetch();
 }
 
+function getAgendaIds($date) {
+    global $conn;
+    $stmt = $conn->prepare("SELECT agenda.agenda_id
+                            FROM agenda
+                            WHERE agenda.data = ?" );
+    $stmt->execute(array($date));
+    return $stmt->fetchAll();
+}
+
 function createAgenda($date,$horario) {
     global $conn;
     $stmt = $conn->prepare("INSERT INTO agenda(data,horario) VALUES (?, ?)" );
@@ -58,10 +71,7 @@ function createAgenda($date,$horario) {
 
 
 
-function registaEquipa($username,$date,$horario,$organizador) {
-
-    $equipa_id = getEquipaId($username)[0]['equipa_id'];
-
+function registaDisponibilidade($equipaEscalao_id,$date,$horario,$organizador) {
 
     $result = getAgendaId($date,$horario);
     $agenda_id;
@@ -79,20 +89,24 @@ function registaEquipa($username,$date,$horario,$organizador) {
 
     global $conn;
 
-    $stmt = $conn->prepare("INSERT INTO disponibilidade(equipa_id,agenda_id,organizador) VALUES (?, ?,?)");
-    $stmt->execute(array($equipa_id,$agenda_id,$organizador));
+    $stmt = $conn->prepare("INSERT INTO disponibilidade(equipaescalao_id,agenda_id,organizador) VALUES (?, ?,?)");
+    $stmt->execute(array($equipaEscalao_id,$agenda_id,$organizador));
 }
 
-function removeEquipa($username,$date,$horario) {
+function removeDisponibilidade($equipaEscalao_id,$date) {
 
-    $equipa_id = getEquipaId($username)[0]['equipa_id'];
-    $agenda_id = getAgendaId($date,$horario)['agenda_id'];
-    $disponibilidade_id = getDisponibilidadeId($agenda_id,$equipa_id)['disponibilidade_id'];
+    $agenda_ids = getAgendaIds($date);
 
     global $conn;
 
-    $stmt = $conn->prepare("DELETE FROM disponibilidade WHERE disponibilidade_id = ?");
-    $stmt->execute(array($disponibilidade_id));
+
+    foreach ($agenda_ids as $agenda_id) {
+            
+        $stmt = $conn->prepare("DELETE FROM disponibilidade WHERE agenda_id = ? AND equipaescalao_id = ?");
+        $stmt->execute(array($agenda_id['agenda_id'],$equipaEscalao_id));
+
+    }
+
 }
 
 function getConfirmacoesMesAno($year,$month) {

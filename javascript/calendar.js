@@ -4,7 +4,7 @@ var confirmacoes_datas = [];
 
 $(document).ready(function () {
 
-    generatePicker("2016-05-10");
+    generatePicker(new Date());
     
 });
 
@@ -16,7 +16,8 @@ function generatePicker(date) {
         {
             dateFormat: "yy-mm-dd",
             beforeShowDay: setStyles,
-            onSelect: setEquipas
+            onSelect: setEquipas,
+            minDate: date
         }
     ).datepicker("setDate",date);
 
@@ -118,8 +119,9 @@ function registaEquipa(){
 
     $.post(BASE_URL + "api/calendar/registaEquipa.php",
         {
-            username: username,
-            data: fdate
+            equipaEscalao_id: equipaEscalao_id,
+            data: fdate,
+            escalao_id: escalaoSelecionado
         },
         function(data){
             disponibilidade = $.parseJSON(data);
@@ -136,8 +138,9 @@ function removeEquipa(){
 
     $.post(BASE_URL + "api/calendar/removeEquipa.php",
         {
-            username: username,
-            data: fdate
+            equipaEscalao_id: equipaEscalao_id,
+            data: fdate,
+            escalao_id: escalaoSelecionado
         },
         function(data){
             disponibilidade = $.parseJSON(data);

@@ -3,8 +3,8 @@
     include_once($BASE_DIR .'database/equipa_confirmacao.php');
 
 
-    registaEquipa($_POST['username'],$_POST['data'],1,1);//TODO
-    $disponibilidade = getDisponibilidade();
+    registaDisponibilidade($_POST['equipaEscalao_id'],$_POST['data'],1,1);//TODO
+    $disponibilidade = getDisponibilidade($_POST['escalao_id']);
 
 
     echo json_encode($disponibilidade);

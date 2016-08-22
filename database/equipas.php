@@ -25,4 +25,18 @@ function getEquipaId($username) {
     return $stmt->fetchAll();
 }
 
+function getEquipaEscaloes($username) {
+    global $conn;
+    $stmt = $conn->prepare("SELECT equipaEscalao.equipaescalao_id,escalao.escalao_id, escalao.nome
+                            FROM equipaEscalao
+                            JOIN escalao ON(equipaEscalao.escalao_id = escalao.escalao_id)
+                            JOIN equipa ON(equipa.equipa_id = equipaEscalao.equipa_id)
+                            WHERE equipa.username = ?
+                            ORDER BY escalao.nome ASC
+                            ");
+    $stmt->execute(array($username));
+    return $stmt->fetchAll();
+
+}
+
 ?>
