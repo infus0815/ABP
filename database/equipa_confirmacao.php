@@ -93,19 +93,14 @@ function registaDisponibilidade($equipaEscalao_id,$date,$horario,$organizador) {
     $stmt->execute(array($equipaEscalao_id,$agenda_id,$organizador));
 }
 
-function removeDisponibilidade($equipaEscalao_id,$date) {
+function removeDisponibilidade($equipaEscalao_id,$date,$horario) {
 
-    $agenda_ids = getAgendaIds($date);
+    $agenda_id = getAgendaId($date,$horario);
 
     global $conn;
 
-
-    foreach ($agenda_ids as $agenda_id) {
-            
-        $stmt = $conn->prepare("DELETE FROM disponibilidade WHERE agenda_id = ? AND equipaescalao_id = ?");
-        $stmt->execute(array($agenda_id['agenda_id'],$equipaEscalao_id));
-
-    }
+    $stmt = $conn->prepare("DELETE FROM disponibilidade WHERE agenda_id = ? AND equipaescalao_id = ?");
+    $stmt->execute(array($agenda_id,$equipaEscalao_id));
 
 }
 
