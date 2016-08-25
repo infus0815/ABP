@@ -1,5 +1,7 @@
 {include file='common/header.tpl'}
 
+
+
 <script>
 
   var disponibilidade = {$disponibilidade|json_encode};
@@ -11,19 +13,27 @@
   for(var x in equipaEscaloes) {
     
     if(equipaEscaloes[x]['escalao_id'] == escalaoSelecionado){
-      console.log(equipaEscaloes[x]['escalao_id']);
       equipaEscalao_id = equipaEscaloes[x]['equipaescalao_id'];
     }
 
   }
+</script>
+
+<script src="../../javascript/calendar.js"></script>
+
+<script>
 
   $(document).ready(function(){
 
-    function dispEvent(disp_selector) {
-      if($("input:first", disp_selector).prop("checked"))
+   /* function dispEvent(disp_selector) {
+      if($("input:first", disp_selector).prop("checked")) {
         $("input:last", disp_selector).prop("disabled", false);
-      else
+        $("div.submitbutton button", disp_selector).prop("disabled", false);
+      }
+      else {
         $("input:last", disp_selector).prop("disabled", true);
+        $("div.submitbutton button", disp_selector).prop("disabled", true);
+      }
     }
 
     $("#disp_manha input:first").click(function() {
@@ -38,7 +48,7 @@
 
     dispEvent($("#disp_manha"));
     dispEvent($("#disp_tarde"));
-
+  */
     $("#nav_calendar").addClass("active");
     $("#escalao_{$equipaSelecionada}").addClass("active");
 
@@ -46,8 +56,6 @@
 
 
 </script>
-
-<script src="../../javascript/calendar.js"></script>
 
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -87,30 +95,28 @@
               <h4>Manhã (xxhxx - xxhxx)</h4>
               <div>Equipa1</div>
               <div>Equipa2</div>
-              <form role="form">
-                <div class="checkbox" id="disp_manha">
+              <form role="form" id="disp_manha">
+                <div class="checkbox">
                   <label><input type="checkbox" value="">Participar</label>
                   <label><input type="checkbox" value="">Organizar</label>
                 </div>
+                <div id="buttondiv_manha"></div>  
               </form>
             </div>
             <div class="col-sm-6 panel">
               <h4>Tarde (xxhxx - xxhxx)</h4>
               <div>Equipa3</div>
               <div>Equipa4</div>
-              <form role="form">
-                <div class="checkbox" id="disp_tarde">
+              <form role="form" id="disp_tarde">
+                <div class="checkbox">
                   <label><input type="checkbox" value="">Participar</label>
                   <label><input type="checkbox" value="">Organizar</label>
                 </div>
+                <div id="buttondiv_tarde"></div> 
               </form>
             </div>
           </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div id="buttondiv"></div>
-            </div>
-          </div>
+          
         </div>
 
         <!-- <div class="col-sm-3">
