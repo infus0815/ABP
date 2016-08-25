@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-08-25 18:57:47
+<?php /* Smarty version Smarty-3.1.15, created on 2016-08-25 19:11:43
          compiled from "\XAMPP\htdocs\ABP\templates\calendar\calendar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:7867579b9af8eced39-97698206%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bfa15a48a3766d2c4b7633435b4c5efe2b9c609c' => 
     array (
       0 => '\\XAMPP\\htdocs\\ABP\\templates\\calendar\\calendar.tpl',
-      1 => 1472143158,
+      1 => 1472145099,
       2 => 'file',
     ),
   ),
@@ -61,30 +61,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
   $(document).ready(function(){
 
-   /* function dispEvent(disp_selector) {
-      if($("input:first", disp_selector).prop("checked")) {
-        $("input:last", disp_selector).prop("disabled", false);
-        $("div.submitbutton button", disp_selector).prop("disabled", false);
-      }
-      else {
-        $("input:last", disp_selector).prop("disabled", true);
-        $("div.submitbutton button", disp_selector).prop("disabled", true);
-      }
-    }
 
-    $("#disp_manha input:first").click(function() {
-
-      dispEvent($("#disp_manha"));
-    });
-
-    $("#disp_tarde input:first").click(function() {
-
-      dispEvent($("#disp_tarde"));
-    });
-
-    dispEvent($("#disp_manha"));
-    dispEvent($("#disp_tarde"));
-  */
     $("#nav_calendar").addClass("active");
     $("#escalao_<?php echo $_smarty_tpl->tpl_vars['equipaSelecionada']->value;?>
 ").addClass("active");

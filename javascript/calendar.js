@@ -9,7 +9,6 @@ $(document).ready(function () {
 
     var currentDate = $('#datepicker').datepicker('getDate');
 
-
 });
 
 
@@ -84,7 +83,7 @@ function updateEquipasList(data, horario) {
             equipas_list_html += equipas_list[x].nome;
 
         if(equipas_list[x].organizador)
-            equipas_list_html += "(organizador)";
+            equipas_list_html += " (organizador)";
 
         equipas_list_html += "</div>";
     }

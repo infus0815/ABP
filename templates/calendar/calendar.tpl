@@ -25,30 +25,7 @@
 
   $(document).ready(function(){
 
-   /* function dispEvent(disp_selector) {
-      if($("input:first", disp_selector).prop("checked")) {
-        $("input:last", disp_selector).prop("disabled", false);
-        $("div.submitbutton button", disp_selector).prop("disabled", false);
-      }
-      else {
-        $("input:last", disp_selector).prop("disabled", true);
-        $("div.submitbutton button", disp_selector).prop("disabled", true);
-      }
-    }
 
-    $("#disp_manha input:first").click(function() {
-
-      dispEvent($("#disp_manha"));
-    });
-
-    $("#disp_tarde input:first").click(function() {
-
-      dispEvent($("#disp_tarde"));
-    });
-
-    dispEvent($("#disp_manha"));
-    dispEvent($("#disp_tarde"));
-  */
     $("#nav_calendar").addClass("active");
     $("#escalao_{$equipaSelecionada}").addClass("active");
 
