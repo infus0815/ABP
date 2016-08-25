@@ -123,6 +123,7 @@ function setButton(date) {
 
         console.log(equipas_manha);
         console.log(equipas_tarde);
+        console.log(disponibilidade);
 
 
         if ($.inArray(username, equipas_manha) >= 0) {
@@ -175,7 +176,9 @@ function registaEquipa(horario){
         {
             equipaEscalao_id: equipaEscalao_id,
             data: fdate,
-            escalao_id: escalaoSelecionado,
+            horario: horario,
+            organizador: organizador,
+            escalao_id: escalaoSelecionado
 
         },
         function(data){

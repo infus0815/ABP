@@ -33,7 +33,7 @@ CREATE TABLE equipaEscalao (
 CREATE TABLE agenda (
   agenda_id   SERIAL PRIMARY KEY,
   data DATE DEFAULT CURRENT_DATE,
-  horario INTEGER CHECK (horario = 1 OR horario = 2),
+  horario INTEGER CHECK (horario = 0 OR horario = 1),
   CONSTRAINT restricao_agenda UNIQUE (data, horario)
 );
 
