@@ -3,7 +3,7 @@
     include_once($BASE_DIR .'database/equipa_confirmacao.php');
 
 
-    removeDisponibilidade($_POST['equipaEscalao_id'],$_POST['data'],$_POST['horario']);//TODO
+    removeDisponibilidade($_POST['equipaEscalao_id'],$_POST['data'],$_POST['horario']);
     $disponibilidade = getDisponibilidade($_POST['escalao_id']);
 
 

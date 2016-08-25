@@ -128,9 +128,9 @@ function setEquipas(data, inst) {
 
 
 var submitButton_manha = '<button type="button" class="btn btn-success" onclick="registaEquipa(0)">Registar Equipa</button>';
-var removeButton_manha = '<button type="button" class="btn btn-danger">Remover Equipa</button>';
+var removeButton_manha = '<button type="button" class="btn btn-danger" onclick="removeEquipa(0)">Remover Equipa</button>';
 var submitButton_tarde = '<button type="button" class="btn btn-success" onclick="registaEquipa(1)">Registar Equipa</button>';
-var removeButton_tarde = '<button type="button" class="btn btn-danger">Remover Equipa</button>';
+var removeButton_tarde = '<button type="button" class="btn btn-danger" onclick="removeEquipa(1)">Remover Equipa</button>';
 
 function setButton(date) {
     if(username != '') {
@@ -204,7 +204,7 @@ function registaEquipa(horario){
         });
 }
 
-function removeEquipa(){
+function removeEquipa(horario){
 
     var currentDate = $('#datepicker').datepicker('getDate');
     var fdate = $.datepicker.formatDate("yy-mm-dd",currentDate);
@@ -214,6 +214,7 @@ function removeEquipa(){
         {
             equipaEscalao_id: equipaEscalao_id,
             data: fdate,
+            horario: horario,
             escalao_id: escalaoSelecionado
         },
         function(data){
