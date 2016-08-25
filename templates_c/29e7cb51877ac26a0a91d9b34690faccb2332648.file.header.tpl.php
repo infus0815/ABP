@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-08-12 18:51:16
+<?php /* Smarty version Smarty-3.1.15, created on 2016-08-25 20:14:10
          compiled from "\XAMPP\htdocs\ABP\templates\common\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:16344579b9af9037911-07911129%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '29e7cb51877ac26a0a91d9b34690faccb2332648' => 
     array (
       0 => '\\XAMPP\\htdocs\\ABP\\templates\\common\\header.tpl',
-      1 => 1471020673,
+      1 => 1472148847,
       2 => 'file',
     ),
   ),
@@ -54,7 +54,7 @@ javascript/main.js"></script>
 </head>
 <body>
 
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>

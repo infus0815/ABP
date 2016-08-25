@@ -6,8 +6,8 @@ $(document).ready(function () {
 
     generatePicker(new Date());
 
-
-    var currentDate = $('#datepicker').datepicker('getDate');
+    $("#nav_calendar").addClass("active");
+    $("#escalao_" + escalaoSelecionado).addClass("active");
 
 });
 
@@ -83,21 +83,27 @@ function updateEquipasList(data, horario) {
             equipas_list.push(disponibilidade[x]);
     }
 
+    console.log(equipas_list);
+
     var equipas_list_html = "";
+
+    if(equipas_list.length == 0)
+        equipas_list_html = '<li class="list-group-item"> </li>';
 
     for(var x in equipas_list) {
 
-        var equipas_list_html = "<div>";
-        if(username == equipas_list[x].username)
-            equipas_list_html += "<strong>" + equipas_list[x].nome + "</strong>";
-        else
-            equipas_list_html += equipas_list[x].nome;
-
+        var equipa_nome = equipas_list[x].nome;
         if(equipas_list[x].organizador)
-            equipas_list_html += " (organizador)";
+            equipa_nome += '<span style="color:gray"> (organizador)</span>';
 
-        equipas_list_html += "</div>";
+
+        if(username == equipas_list[x].username)
+            equipas_list_html = '<li class="list-group-item"><span style="color:blue">' + equipa_nome + "</span></li>" + equipas_list_html;
+        else
+            equipas_list_html += '<li class="list-group-item">' + equipa_nome + "</li>";
     }
+
+    // <li class="list-group-item">New <span class="badge">12</span></li>
 
     if(horario == 0)
         $('#equipas_manha').html(equipas_list_html);
@@ -131,6 +137,8 @@ function setEquipas(data, inst) {
 
     dispEvent($("#disp_manha"));
     dispEvent($("#disp_tarde"));
+
+    $("#data_evento").html("Disponibilidade (" + fdate + ")");
 }
 
 

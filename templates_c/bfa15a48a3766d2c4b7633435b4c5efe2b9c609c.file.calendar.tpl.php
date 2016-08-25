@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-08-25 19:11:43
+<?php /* Smarty version Smarty-3.1.15, created on 2016-08-25 20:02:43
          compiled from "\XAMPP\htdocs\ABP\templates\calendar\calendar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:7867579b9af8eced39-97698206%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bfa15a48a3766d2c4b7633435b4c5efe2b9c609c' => 
     array (
       0 => '\\XAMPP\\htdocs\\ABP\\templates\\calendar\\calendar.tpl',
-      1 => 1472145099,
+      1 => 1472148041,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'USERNAME' => 0,
     'escalaoSelecionado' => 0,
     'equipaEscaloes' => 0,
-    'equipaSelecionada' => 0,
     'equipaEscalao' => 0,
     'BASE_URL' => 0,
   ),
@@ -57,19 +56,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 <script src="../../javascript/calendar.js"></script>
 
-<script>
-
-  $(document).ready(function(){
-
-
-    $("#nav_calendar").addClass("active");
-    $("#escalao_<?php echo $_smarty_tpl->tpl_vars['equipaSelecionada']->value;?>
-").addClass("active");
-
-  });
-
-
-</script>
 
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -110,16 +96,14 @@ actions/pdf/generatePDF.php" class="btn btn-info" role="button"  target="_blank"
         <div class="col-sm-8">
           <div class="row">
             <div class="col-sm-12">
-              <h3>Data do torneio</h3>
+              <h3 id="data_evento"></h3>
             </div>
           </div>
           <div class="row">
             <div class="col-sm-6 panel">
-              <h4>Manhã (xxhxx - xxhxx)</h4>
-              <div id="equipas_manha">
-                <div>Equipa3</div>
-                <div>Equipa4</div>
-              </div>
+              <h4>Manhã (09h00 - 12h30)</h4>
+              <ul id="equipas_manha" class="list-group">
+              </ul>
               <form role="form" id="disp_manha">
                 <div class="checkbox">
                   <label><input type="checkbox" value="">Participar</label>
@@ -129,11 +113,9 @@ actions/pdf/generatePDF.php" class="btn btn-info" role="button"  target="_blank"
               </form>
             </div>
             <div class="col-sm-6 panel">
-              <h4>Tarde (xxhxx - xxhxx)</h4>
-              <div id="equipas_tarde">
-                <div>Equipa3</div>
-                <div>Equipa4</div>
-              </div>
+              <h4>Tarde (14h30 - 17h30z)</h4>
+              <ul id="equipas_tarde" class="list-group">
+              </ul>
               <form role="form" id="disp_tarde">
                 <div class="checkbox">
                   <label><input type="checkbox" value="">Participar</label>

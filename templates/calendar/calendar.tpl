@@ -21,18 +21,6 @@
 
 <script src="../../javascript/calendar.js"></script>
 
-<script>
-
-  $(document).ready(function(){
-
-
-    $("#nav_calendar").addClass("active");
-    $("#escalao_{$equipaSelecionada}").addClass("active");
-
-  });
-
-
-</script>
 
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -64,16 +52,14 @@
         <div class="col-sm-8">
           <div class="row">
             <div class="col-sm-12">
-              <h3>Data do torneio</h3>
+              <h3 id="data_evento"></h3>
             </div>
           </div>
           <div class="row">
             <div class="col-sm-6 panel">
-              <h4>Manhã (xxhxx - xxhxx)</h4>
-              <div id="equipas_manha">
-                <div>Equipa3</div>
-                <div>Equipa4</div>
-              </div>
+              <h4>Manhã (09h00 - 12h30)</h4>
+              <ul id="equipas_manha" class="list-group">
+              </ul>
               <form role="form" id="disp_manha">
                 <div class="checkbox">
                   <label><input type="checkbox" value="">Participar</label>
@@ -83,11 +69,9 @@
               </form>
             </div>
             <div class="col-sm-6 panel">
-              <h4>Tarde (xxhxx - xxhxx)</h4>
-              <div id="equipas_tarde">
-                <div>Equipa3</div>
-                <div>Equipa4</div>
-              </div>
+              <h4>Tarde (14h30 - 17h30z)</h4>
+              <ul id="equipas_tarde" class="list-group">
+              </ul>
               <form role="form" id="disp_tarde">
                 <div class="checkbox">
                   <label><input type="checkbox" value="">Participar</label>
