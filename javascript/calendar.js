@@ -31,7 +31,7 @@ function generatePicker(date) {
 function setStyles(date) {
 
     var fdate = $.datepicker.formatDate("yy-mm-dd",date);
-    var equipas_data = getEquipaData(fdate);
+    var equipas_data = getEquipaDataCSS(fdate);
     if($.inArray(fdate,confirmacoes_datas) >= 0)
         if($.inArray(username,equipas_data) >= 0) {
             return [true, "equipa-exists"];
@@ -57,6 +57,16 @@ function getEquipaData(date, horario) {
     var arr = [];
     for (var x in disponibilidade) {
         if(disponibilidade[x].data == date && disponibilidade[x].horario == horario)
+            arr.push(disponibilidade[x].username);
+    }
+
+    return arr;
+}
+
+function getEquipaDataCSS(date) {
+    var arr = [];
+    for (var x in disponibilidade) {
+        if(disponibilidade[x].data == date)
             arr.push(disponibilidade[x].username);
     }
 
