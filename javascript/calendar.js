@@ -63,6 +63,7 @@ function getEquipaData(date, horario) {
     return arr;
 }
 
+
 function getEquipaDataCSS(date) {
     var arr = [];
     for (var x in disponibilidade) {
@@ -73,30 +74,46 @@ function getEquipaDataCSS(date) {
     return arr;
 }
 
-function getEquipaNomeData(data) {
-    var arr = [];
+
+function updateEquipasList(data, horario) {
+
+    var equipas_list = [];
+
     for (var x in disponibilidade) {
-        if(disponibilidade[x].data == data)
-            arr.push(disponibilidade[x].nome);
+        if(disponibilidade[x].data == data && disponibilidade[x].horario == horario)
+            equipas_list.push(disponibilidade[x]);
     }
 
-    return arr;
+    var equipas_list_html = "";
+
+    for(var x in equipas_list) {
+
+        var equipas_list_html = "<div>";
+        if(username == equipas_list[x].username)
+            equipas_list_html += "<strong>" + equipas_list[x].nome + "</strong>";
+        else
+            equipas_list_html += equipas_list[x].nome;
+
+        if(equipas_list[x].organizador)
+            equipas_list_html += "(organizador)";
+
+        equipas_list_html += "</div>";
+    }
+
+    if(horario == 0)
+        $('#equipas_manha').html(equipas_list_html);
+    else if(horario == 1)
+        $('#equipas_tarde').html(equipas_list_html);
 
 }
 
-function setEquipas(data,inst) {
+function setEquipas(data, inst) {
 
     var date = new Date(data);
-
-    var fdate = $.datepicker.formatDate("yy-mm-dd",date);
-    var equipas_data = getEquipaNomeData(fdate);
-
-    var trs = ""
-    for(var x in equipas_data) {
-        trs = trs + "<tr><td>" + equipas_data[x] + "</td></tr>";
-    }
-
-    $('#equipas > tbody').html(trs);
+    var fdate = $.datepicker.formatDate("yy-mm-dd", date);
+    
+    updateEquipasList(fdate, 0);
+    updateEquipasList(fdate, 1);
 
     setButton(fdate);
 
@@ -119,6 +136,7 @@ function setEquipas(data,inst) {
 
 
 /*BUTOES*/
+
 
 
 var submitButton_manha = '<button type="button" class="btn btn-success" onclick="registaEquipa(0)">Registar Equipa</button>';
