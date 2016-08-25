@@ -3,7 +3,9 @@
     include_once($BASE_DIR .'database/equipa_confirmacao.php');
 
 
-    registaDisponibilidade($_POST['equipaEscalao_id'],$_POST['data'],1,1);//TODO
+
+
+    registaDisponibilidade($_POST['equipaEscalao_id'],$_POST['data'],$_POST['horario'],$_POST['organizador']);
     $disponibilidade = getDisponibilidade($_POST['escalao_id']);
 
 
