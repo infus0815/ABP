@@ -93,8 +93,10 @@
           <div class="row">
             <div class="col-sm-6 panel">
               <h4>Manhã (xxhxx - xxhxx)</h4>
-              <div>Equipa1</div>
-              <div>Equipa2</div>
+              <div id="equipas_manha">
+                <div>Equipa3</div>
+                <div>Equipa4</div>
+              </div>
               <form role="form" id="disp_manha">
                 <div class="checkbox">
                   <label><input type="checkbox" value="">Participar</label>
@@ -105,8 +107,10 @@
             </div>
             <div class="col-sm-6 panel">
               <h4>Tarde (xxhxx - xxhxx)</h4>
-              <div>Equipa3</div>
-              <div>Equipa4</div>
+              <div id="equipas_tarde">
+                <div>Equipa3</div>
+                <div>Equipa4</div>
+              </div>
               <form role="form" id="disp_tarde">
                 <div class="checkbox">
                   <label><input type="checkbox" value="">Participar</label>
