@@ -5,7 +5,7 @@ include_once($BASE_DIR .'database/equipas.php');
 function getDisponibilidade($escalao_id) {
     global $conn;
     $stmt = $conn->prepare("
-SELECT disponibilidade.disponibilidade_id, agenda.data,agenda.agenda_id, agenda.horario, equipa.nome, equipa.username
+SELECT disponibilidade.disponibilidade_id,disponibilidade.organizador, agenda.data,agenda.agenda_id, agenda.horario, equipa.nome, equipa.username
 FROM disponibilidade
 JOIN equipaEscalao ON(disponibilidade.equipaescalao_id = equipaEscalao.equipaescalao_id)
 JOIN equipa ON(equipaEscalao.equipa_id = equipa.equipa_id)
@@ -95,7 +95,7 @@ function registaDisponibilidade($equipaEscalao_id,$date,$horario,$organizador) {
 
 function removeDisponibilidade($equipaEscalao_id,$date,$horario) {
 
-    $agenda_id = getAgendaId($date,$horario);
+    $agenda_id = getAgendaId($date,$horario)['agenda_id'];
 
     global $conn;
 
