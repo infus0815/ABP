@@ -98,7 +98,7 @@ function updateEquipasList(data, horario) {
 
 
         if(username == equipas_list[x].username)
-            equipas_list_html = '<li class="list-group-item"><span style="color:blue">' + equipa_nome + "</span></li>" + equipas_list_html;
+            equipas_list_html = '<li class="list-group-item"><span style="color:green">' + equipa_nome + "</span></li>" + equipas_list_html;
         else
             equipas_list_html += '<li class="list-group-item">' + equipa_nome + "</li>";
     }

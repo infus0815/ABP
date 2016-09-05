@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-08-25 20:14:10
+<?php /* Smarty version Smarty-3.1.15, created on 2016-09-05 18:41:59
          compiled from "\XAMPP\htdocs\ABP\templates\common\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:16344579b9af9037911-07911129%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '29e7cb51877ac26a0a91d9b34690faccb2332648' => 
     array (
       0 => '\\XAMPP\\htdocs\\ABP\\templates\\common\\header.tpl',
-      1 => 1472148847,
+      1 => 1473093717,
       2 => 'file',
     ),
   ),
@@ -21,10 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'BASE_URL' => 0,
     'USERNAME' => 0,
-    'ERROR_MESSAGES' => 0,
-    'error' => 0,
-    'SUCCESS_MESSAGES' => 0,
-    'success' => 0,
+    'equipaEscaloes' => 0,
+    'equipaEscalao' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -48,10 +46,11 @@ css/style.css">
     integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
     crossorigin="anonymous"></script>
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-lib/jquery-ui/jquery-ui.min.js"></script>    
+lib/jquery-ui/jquery-ui.js"></script>    
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 javascript/main.js"></script>
 </head>
+
 <body>
 
     <nav class="navbar navbar-default">
@@ -68,10 +67,23 @@ pages/presentation/presentation.php">ABP</a>
             <div class="collapse navbar-collapse" id="menu">
                 <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value) {?>
                 <ul class="nav navbar-nav">
-                    <li id="nav_calendar"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/calendar/calendar.php">Calendário</a></li>
+                    <!--<li id="nav_calendar"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/calendar/calendar.php">Calendário</a></li>-->
+                    <?php  $_smarty_tpl->tpl_vars['equipaEscalao'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['equipaEscalao']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['equipaEscaloes']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['equipaEscalao']->key => $_smarty_tpl->tpl_vars['equipaEscalao']->value) {
+$_smarty_tpl->tpl_vars['equipaEscalao']->_loop = true;
+?>
+                        <li id="escalao_<?php echo $_smarty_tpl->tpl_vars['equipaEscalao']->value['escalao_id'];?>
+">
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/calendar/calendar.php?escalao_id=<?php echo $_smarty_tpl->tpl_vars['equipaEscalao']->value['escalao_id'];?>
+">Mini <?php echo $_smarty_tpl->tpl_vars['equipaEscalao']->value["nome"];?>
+</a>
+                        </li>
+                    <?php } ?>
                     <li id="nav_profile"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/perfil/perfil.php">Perfil</a></li>
+pages/perfil/perfil.php">Conta</a></li>
                     <!-- <li><a id="nav_historico" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 ">Histórico</a></li> -->
                 </ul>           
@@ -94,54 +106,6 @@ actions/equipas/login.php" method="post" enctype="multipart/form-data" class="na
     </nav>
 
     <div class="container-fluid">
-
-
-
-   <!--  <div class="container">
-        <div class="page-header">
-
-            <h1><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-">ABP</a></h1>
-
-            <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value) {?>
-            <form action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-actions/equipas/logout.php">
-                <strong><?php echo $_smarty_tpl->tpl_vars['USERNAME']->value;?>
-</strong>
-                <button type="submit">Logout</button>
-            </form>
-            <?php } else { ?>
-            <form action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-actions/equipas/login.php" method="post" enctype="multipart/form-data">
-                <input type="text" placeholder="username" name="username">
-                <input type="password" placeholder="password" name="password">
-                <button type="submit">Login</button>
-            </form>
-            <?php }?>
-
-            <div class="row">
-                <div class="col-sm-2">
-                    <?php  $_smarty_tpl->tpl_vars['error'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['error']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['ERROR_MESSAGES']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['error']->key => $_smarty_tpl->tpl_vars['error']->value) {
-$_smarty_tpl->tpl_vars['error']->_loop = true;
-?>
-                    <div style="color:red"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
-<div class="close">X</div></div>
-                    <?php } ?>
-            
-                    <?php  $_smarty_tpl->tpl_vars['success'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['success']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['SUCCESS_MESSAGES']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['success']->key => $_smarty_tpl->tpl_vars['success']->value) {
-$_smarty_tpl->tpl_vars['success']->_loop = true;
-?>
-                    <div style="color:green"><?php echo $_smarty_tpl->tpl_vars['success']->value;?>
-<div class="close">X</div></div>
-                    <?php } ?>
-                </div>
-            </div>
-
-        </div> -->
 
 
 

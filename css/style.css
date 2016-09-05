@@ -73,24 +73,17 @@
 
 
 
-
-
-
-
-
-
-
-
-
 /*DATEPICKER*/
 .mark-exists .ui-state-default
 {
-  color: red;
+  color: blue;
+  font-weight: bold;
 }
 
 .equipa-exists .ui-state-default
 {
   color: green;
+  font-weight: bold;
 }
 
 

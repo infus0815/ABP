@@ -15,9 +15,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
     integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
     crossorigin="anonymous"></script>
-    <script src="{$BASE_URL}lib/jquery-ui/jquery-ui.min.js"></script>    
+    <script src="{$BASE_URL}lib/jquery-ui/jquery-ui.js"></script>    
     <script src="{$BASE_URL}javascript/main.js"></script>
 </head>
+
 <body>
 
     <nav class="navbar navbar-default">
@@ -33,8 +34,13 @@
             <div class="collapse navbar-collapse" id="menu">
                 {if $USERNAME}
                 <ul class="nav navbar-nav">
-                    <li id="nav_calendar"><a href="{$BASE_URL}pages/calendar/calendar.php">Calendário</a></li>
-                    <li id="nav_profile"><a href="{$BASE_URL}pages/perfil/perfil.php">Perfil</a></li>
+                    <!--<li id="nav_calendar"><a href="{$BASE_URL}pages/calendar/calendar.php">Calendário</a></li>-->
+                    {foreach $equipaEscaloes as $equipaEscalao}
+                        <li id="escalao_{$equipaEscalao['escalao_id']}">
+                        <a href="{$BASE_URL}pages/calendar/calendar.php?escalao_id={$equipaEscalao['escalao_id']}">Mini {$equipaEscalao["nome"]}</a>
+                        </li>
+                    {/foreach}
+                    <li id="nav_profile"><a href="{$BASE_URL}pages/perfil/perfil.php">Conta</a></li>
                     <!-- <li><a id="nav_historico" href="{$BASE_URL}">Histórico</a></li> -->
                 </ul>           
                 <form action="{$BASE_URL}actions/equipas/logout.php" class="navbar-form navbar-right">
@@ -53,40 +59,6 @@
     </nav>
 
     <div class="container-fluid">
-
-
-
-   <!--  <div class="container">
-        <div class="page-header">
-
-            <h1><a href="{$BASE_URL}">ABP</a></h1>
-
-            {if $USERNAME}
-            <form action="{$BASE_URL}actions/equipas/logout.php">
-                <strong>{$USERNAME}</strong>
-                <button type="submit">Logout</button>
-            </form>
-            {else}
-            <form action="{$BASE_URL}actions/equipas/login.php" method="post" enctype="multipart/form-data">
-                <input type="text" placeholder="username" name="username">
-                <input type="password" placeholder="password" name="password">
-                <button type="submit">Login</button>
-            </form>
-            {/if}
-
-            <div class="row">
-                <div class="col-sm-2">
-                    {foreach $ERROR_MESSAGES as $error}
-                    <div style="color:red">{$error}<div class="close">X</div></div>
-                    {/foreach}
-            
-                    {foreach $SUCCESS_MESSAGES as $success}
-                    <div style="color:green">{$success}<div class="close">X</div></div>
-                    {/foreach}
-                </div>
-            </div>
-
-        </div> -->
 
 
 
