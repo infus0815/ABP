@@ -4,10 +4,15 @@ include_once('../../config/init.php');
 include_once($BASE_DIR .'database/equipa_confirmacao.php');
 include_once($BASE_DIR .'database/equipas.php');
 
-$equipaEscaloes = getEquipaEscaloes($_SESSION['username']);
+if($_SESSION['username']) {
 
-$smarty->assign('equipaEscaloes', $equipaEscaloes);
+	$equipaEscaloes = getEquipaEscaloes($_SESSION['username']);
 
-$smarty->display('perfil/perfil.tpl');
+	$smarty->assign('equipaEscaloes', $equipaEscaloes);
+
+	$smarty->display('perfil/perfil.tpl');
+}
+else
+	header('Location: ../presentation/presentation.php');
 
 ?>
