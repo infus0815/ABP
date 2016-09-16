@@ -39,4 +39,12 @@ function getEquipaEscaloes($username) {
 
 }
 
+function changePassword($username, $newPassword) {
+    global $conn;
+    $stmt = $conn->prepare("UPDATE equipa 
+                            SET  password = ?
+                            WHERE username = ?");
+    return $stmt->execute(array(sha1($username.$newPassword), $username));
+  }
+
 ?>

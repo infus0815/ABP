@@ -57,7 +57,7 @@
           </form>
         </div>
         <div class="col-sm-6 panel">
-          <h4>Tarde (14h30 - 17h30z)</h4>
+          <h4>Tarde (14h30 - 17h30)</h4>
           <ul id="equipas_tarde" class="list-group">
           </ul>
           <form role="form" id="disp_tarde">
