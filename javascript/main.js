@@ -1,12 +1,12 @@
 BASE_URL = '/ABP/';
 
-$(document).ready(function() {
-  initMessageClosers();
-});
+// $(document).ready(function() {
+//   initMessageClosers();
+// });
 
-function initMessageClosers() {
-  $('.close').click(function() {
-    $(this).parent().fadeOut();
-  });
-}
+// function initMessageClosers() {
+//   $('.close').click(function() {
+//     $(this).parent().fadeOut();
+//   });
+// }
 
