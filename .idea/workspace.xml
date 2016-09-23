@@ -150,8 +150,8 @@
       <file leaf-file-name="init.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/init.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+            <state relative-caret-position="34">
+              <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -933,12 +933,12 @@
       <workItem from="1462371466724" duration="20456000" />
       <workItem from="1462735135256" duration="20000" />
       <workItem from="1469712477174" duration="2601000" />
-      <workItem from="1474659404693" duration="1777000" />
+      <workItem from="1474659404693" duration="2279000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63612000" />
+    <option name="totallyTimeSpent" value="64114000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1249,14 +1249,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/presentation/presentation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/calendar/calendar.tpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1300,10 +1292,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pages/presentation/presentation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/init.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+        <state relative-caret-position="34">
+          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
           <folding />
         </state>
       </provider>

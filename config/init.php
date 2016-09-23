@@ -1,6 +1,6 @@
 <?php
   error_reporting(E_ERROR | E_WARNING); // E_NOTICE by default
-  session_set_cookie_params(3600, '/~ABP',false); //FIXME
+  session_set_cookie_params(3600, '/',false); //FIXME
   session_start();
 
 
