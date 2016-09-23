@@ -1,7 +1,5 @@
 {include file='common/header.tpl'}
 
-
-
 <script>
 
   var disponibilidade = {$disponibilidade|json_encode};
@@ -23,20 +21,27 @@
 
 <div class="container">
   <div class="row">
+    <div class="col-sm-12" >
+      <h2>Agenda para Mini
+        {foreach $equipaEscaloes as $equipaEscalao}
+        {if $equipaEscalao['escalao_id'] == $escalaoSelecionado}
+
+        {$equipaEscalao['nome']}
+
+        {/if}
+        {/foreach}
+      </h2>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-sm-4">
-      <div id="datepicker"></div>
+<!--       <div class="row">
+        <h3>Agenda</h3>
+      </div> -->
+      <div class="row" style="padding-top:20px">
+        <div id="datepicker"></div>
+      </div>
     </div>
-
-    <!-- <div>
-      <a href="{$BASE_URL}actions/pdf/generatePDF.php" class="btn btn-info" role="button"  target="_blank">Link Button</a>
-    </div>
-  -->
-
-<!--         <table id="equipas">
-      <tbody>
-      </tbody>
-    </table> -->
-
     <div class="col-sm-8">
       <div class="row">
         <div class="col-sm-12">
@@ -69,23 +74,7 @@
           </form>
         </div>
       </div>
-      
     </div>
-
-    <!-- <div class="col-sm-3">
-      <div class="checkbox">
-        <label class="checkbox-inline"><input checked type="checkbox" value="">Manhã</label>
-        <label class="checkbox-inline"><input type="checkbox" value="">Organizador</label>
-      </div>
-
-      <div class="checkbox">
-        <label class="checkbox-inline"><input checked type="checkbox" value="">Tarde</label>
-        <label class="checkbox-inline"><input type="checkbox" value="">Organizador</label>
-      </div>
-
-      <div id="buttondiv"></div>
-    </div> -->
-
   </div>
 </div>
 
