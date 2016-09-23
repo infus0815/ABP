@@ -6,7 +6,7 @@
 
 
   $BASE_DIR = '/app/'; //FIXME
-  $BASE_URL = 'https://abptest.herokuapp.com/app/'; //FIXME
+  $BASE_URL = 'https://abptest.herokuapp.com/'; //FIXME
 
   $conn = new PDO('pgsql:host=    ec2-54-228-213-160.eu-west-1.compute.amazonaws.com;port=5432;dbname=dctubk3br1l10f','knlvvpesmrzumh','7dX-iWONADRZqT-N4SohQhUooZ'); //FIXME
   $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
