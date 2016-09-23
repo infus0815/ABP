@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d3e1443-f766-4a05-8940-d5556781dd81" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/main.js" afterPath="$PROJECT_DIR$/javascript/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/init.php" afterPath="$PROJECT_DIR$/config/init.php" />
     </list>
     <ignored path="ABP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -94,7 +94,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -147,11 +147,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="init.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="init.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/init.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="45" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="45" />
+            <state relative-caret-position="135">
+              <caret line="8" column="49" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -170,8 +170,8 @@
       <file leaf-file-name="header.tpl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/common/header.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-239">
-              <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+            <state relative-caret-position="289">
+              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -240,8 +240,8 @@
         <option value="$PROJECT_DIR$/abp.sql" />
         <option value="$PROJECT_DIR$/templates/presentation/presentation.tpl" />
         <option value="$PROJECT_DIR$/pages/presentation/presentation.php" />
-        <option value="$PROJECT_DIR$/config/init.php" />
         <option value="$PROJECT_DIR$/javascript/main.js" />
+        <option value="$PROJECT_DIR$/config/init.php" />
       </list>
     </option>
   </component>
@@ -933,12 +933,12 @@
       <workItem from="1462371466724" duration="20456000" />
       <workItem from="1462735135256" duration="20000" />
       <workItem from="1469712477174" duration="2601000" />
-      <workItem from="1474659404693" duration="1567000" />
+      <workItem from="1474659404693" duration="1706000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63402000" />
+    <option name="totallyTimeSpent" value="63541000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1207,14 +1207,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/equipas/login.php" />
     <entry file="file://$PROJECT_DIR$/javascript/tweets.js" />
-    <entry file="file://$PROJECT_DIR$/pages/calendar/calendar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1265,22 +1257,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/init.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="45" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/common/header.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-239">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/calendar/calendar.tpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1304,6 +1280,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="42" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/common/header.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/calendar/calendar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/init.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="8" column="49" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="49" />
           <folding />
         </state>
       </provider>
