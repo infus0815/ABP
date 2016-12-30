@@ -25,8 +25,6 @@ function generatePicker(date) {
     ).datepicker("setDate",date);
 
     setEquipas(date);
-
-
 }
 
 function setStyles(date) {
@@ -34,7 +32,7 @@ function setStyles(date) {
     var fdate = $.datepicker.formatDate("yy-mm-dd",date);
     var equipas_data = getEquipaDataCSS(fdate);
     if($.inArray(fdate,confirmacoes_datas) >= 0)
-        if($.inArray(equipaEscalao_id,equipas_data) >= 0) {
+        if($.inArray(username,equipas_data) >= 0) {
             return [true, "equipa-exists"];
         }
         else
@@ -58,7 +56,7 @@ function getEquipaData(date, horario) {
     var arr = [];
     for (var x in disponibilidade) {
         if(disponibilidade[x].data == date && disponibilidade[x].horario == horario)
-            arr.push(disponibilidade[x].equipaescalao_id);
+            arr.push(disponibilidade[x].username);
     }
 
     return arr;
@@ -69,7 +67,7 @@ function getEquipaDataCSS(date) {
     var arr = [];
     for (var x in disponibilidade) {
         if(disponibilidade[x].data == date)
-            arr.push(disponibilidade[x].equipaescalao_id);
+            arr.push(disponibilidade[x].username);
     }
 
     return arr;
@@ -94,12 +92,12 @@ function updateEquipasList(data, horario) {
 
     for(var x in equipas_list) {
 
-        var equipa_nome = equipas_list[x].nome + " " + equipas_list[x].equipaescalao_nome ;
+        var equipa_nome = equipas_list[x].nome;
         if(equipas_list[x].organizador)
             equipa_nome += '<span style="color:gray"> (organizador)</span>';
 
 
-        if(equipaEscalao_id == equipas_list[x].equipaescalao_id)
+        if(username == equipas_list[x].username)
             equipas_list_html = '<li class="list-group-item"><span style="color:green">' + equipa_nome + "</span></li>" + equipas_list_html;
         else
             equipas_list_html += '<li class="list-group-item">' + equipa_nome + "</li>";
@@ -163,7 +161,7 @@ function setButton(date) {
         console.log(disponibilidade);
 
 
-        if ($.inArray(equipaEscalao_id, equipas_manha) >= 0) {
+        if ($.inArray(username, equipas_manha) >= 0) {
             $('#buttondiv_manha').html(removeButton_manha);
             $('#disp_manha label').hide();
         }
@@ -172,7 +170,7 @@ function setButton(date) {
             $('#disp_manha label').show();
         }
 
-        if ($.inArray(equipaEscalao_id, equipas_tarde) >= 0) {
+        if ($.inArray(username, equipas_tarde) >= 0) {
             $('#buttondiv_tarde').html(removeButton_tarde);
             $('#disp_tarde label').hide();
         }

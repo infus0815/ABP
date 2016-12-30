@@ -8,8 +8,7 @@
   $BASE_DIR = '/XAMPP/htdocs/ABP/'; //FIXME
   $BASE_URL = 'http://localhost/ABP/'; //FIXME
 
-  /*$conn = new PDO('pgsql:host=ec2-54-228-213-160.eu-west-1.compute.amazonaws.com;port=5432;dbname=dctubk3br1l10f','knlvvpesmrzumh','7dX-iWONADRZqT-N4SohQhUooZ'); //FIXME*/
-  $conn = new PDO('pgsql:host=localhost;port=5432;dbname=ABP');
+  $conn = new PDO('pgsql:host=localhost;port=5432;dbname=ABP','AlexPedro'); //FIXME
   $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

@@ -5,16 +5,16 @@
   var disponibilidade = {$disponibilidade|json_encode};
   var username = '{$USERNAME}';
   var escalaoSelecionado = '{$escalaoSelecionado}';
-  var equipaEscalao_id = {$equipaescalao};
+  var equipaEscalao_id;
   var equipaEscaloes = {$equipaEscaloes|json_encode};
 
-  // for(var x in equipaEscaloes) {
+  for(var x in equipaEscaloes) {
     
-  //   if(equipaEscaloes[x]['escalao_id'] == escalaoSelecionado){
-  //     equipaEscalao_id = equipaEscaloes[x]['equipaescalao_id'];
-  //   }
+    if(equipaEscaloes[x]['escalao_id'] == escalaoSelecionado){
+      equipaEscalao_id = equipaEscaloes[x]['equipaescalao_id'];
+    }
 
-  // }
+  }
 </script>
 
 <script src="../../javascript/calendar.js"></script>
@@ -24,9 +24,9 @@
     <div class="col-sm-12" >
       <h2>Agenda para Mini
         {foreach $equipaEscaloes as $equipaEscalao}
-        {if $equipaEscalao['equipaescalao_id'] == {$equipaescalao}}
+        {if $equipaEscalao['escalao_id'] == $escalaoSelecionado}
 
-        {$equipaEscalao['nome']} {$equipaEscalao['equipaescalao_nome']}
+        {$equipaEscalao['nome']}
 
         {/if}
         {/foreach}

@@ -3,20 +3,11 @@
     include_once($BASE_DIR .'database/equipa_confirmacao.php');
 
 
-
     if($_SESSION['username']) {
+    	registaDisponibilidade($_POST['equipaEscalao_id'],$_POST['data'],$_POST['horario'],$_POST['organizador']);
+   		$disponibilidade = getDisponibilidade($_POST['escalao_id']);
 
-		$equipaEscaloes = getEquipaEscaloes($_SESSION['username']);
 
-		foreach($equipaEscaloes as $equipaEscalao)
-		{
-
-			if($equipaEscalao['equipaescalao_id'] == $_POST['equipaEscalao_id'])
-			{
-				registaDisponibilidade($_POST['equipaEscalao_id'],$_POST['data'],$_POST['horario'],$_POST['organizador']);
-				$disponibilidade = getDisponibilidade($_POST['escalao_id']);
-				echo json_encode($disponibilidade);
-			}
-		}
+    	echo json_encode($disponibilidade);
     }
 ?>

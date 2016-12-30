@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-12-28 19:49:26
+<?php /* Smarty version Smarty-3.1.15, created on 2016-09-23 19:39:23
          compiled from "\XAMPP\htdocs\ABP\templates\calendar\calendar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:835957e55b6cdc3f74-14781465%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bfa15a48a3766d2c4b7633435b4c5efe2b9c609c' => 
     array (
       0 => '\\XAMPP\\htdocs\\ABP\\templates\\calendar\\calendar.tpl',
-      1 => 1482950964,
+      1 => 1474652361,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'disponibilidade' => 0,
     'USERNAME' => 0,
     'escalaoSelecionado' => 0,
-    'equipaescalao' => 0,
     'equipaEscaloes' => 0,
     'equipaEscalao' => 0,
   ),
@@ -39,18 +38,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ';
   var escalaoSelecionado = '<?php echo $_smarty_tpl->tpl_vars['escalaoSelecionado']->value;?>
 ';
-  var equipaEscalao_id = <?php echo $_smarty_tpl->tpl_vars['equipaescalao']->value;?>
-;
+  var equipaEscalao_id;
   var equipaEscaloes = <?php echo json_encode($_smarty_tpl->tpl_vars['equipaEscaloes']->value);?>
 ;
 
-  // for(var x in equipaEscaloes) {
+  for(var x in equipaEscaloes) {
     
-  //   if(equipaEscaloes[x]['escalao_id'] == escalaoSelecionado){
-  //     equipaEscalao_id = equipaEscaloes[x]['equipaescalao_id'];
-  //   }
+    if(equipaEscaloes[x]['escalao_id'] == escalaoSelecionado){
+      equipaEscalao_id = equipaEscaloes[x]['equipaescalao_id'];
+    }
 
-  // }
+  }
 </script>
 
 <script src="../../javascript/calendar.js"></script>
@@ -64,11 +62,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 foreach ($_from as $_smarty_tpl->tpl_vars['equipaEscalao']->key => $_smarty_tpl->tpl_vars['equipaEscalao']->value) {
 $_smarty_tpl->tpl_vars['equipaEscalao']->_loop = true;
 ?>
-        <?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['equipaescalao']->value;?>
-<?php $_tmp1=ob_get_clean();?><?php if ($_smarty_tpl->tpl_vars['equipaEscalao']->value['equipaescalao_id']==$_tmp1) {?>
+        <?php if ($_smarty_tpl->tpl_vars['equipaEscalao']->value['escalao_id']==$_smarty_tpl->tpl_vars['escalaoSelecionado']->value) {?>
 
         <?php echo $_smarty_tpl->tpl_vars['equipaEscalao']->value['nome'];?>
- <?php echo $_smarty_tpl->tpl_vars['equipaEscalao']->value['equipaescalao_nome'];?>
 
 
         <?php }?>
