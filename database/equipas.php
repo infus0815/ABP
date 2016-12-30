@@ -27,7 +27,7 @@ function getEquipaId($username) {
 
 function getEquipaEscaloes($username) {
     global $conn;
-    $stmt = $conn->prepare("SELECT equipaEscalao.equipaescalao_id,escalao.escalao_id, escalao.nome
+    $stmt = $conn->prepare("SELECT equipaEscalao.equipaescalao_id,escalao.escalao_id, equipaEscalao.nome AS equipaescalao_nome, escalao.nome
                             FROM equipaEscalao
                             JOIN escalao ON(equipaEscalao.escalao_id = escalao.escalao_id)
                             JOIN equipa ON(equipa.equipa_id = equipaEscalao.equipa_id)

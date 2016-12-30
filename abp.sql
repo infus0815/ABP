@@ -24,9 +24,10 @@ CREATE TABLE equipaEscalao (
   equipaescalao_id SERIAL PRIMARY KEY,
   equipa_id INTEGER,
   escalao_id INTEGER,
+  nome VARCHAR NOT NULL DEFAULT '',
   FOREIGN KEY (equipa_id) REFERENCES equipa (equipa_id),
   FOREIGN KEY (escalao_id) REFERENCES escalao (escalao_id),
-  CONSTRAINT equipa_escalao UNIQUE (equipa_id, escalao_id)
+  CONSTRAINT equipa_escalao UNIQUE (equipa_id, escalao_id, nome)
   );
 
 
@@ -62,7 +63,8 @@ INSERT INTO equipa(username,nome,password) VALUES ('fcporto','F. C. Porto','348c
 
 
 
-INSERT INTO equipaEscalao(equipa_id,escalao_id) VALUES ('1','1');
+INSERT INTO equipaEscalao(nome, equipa_id,escalao_id) VALUES ('A','1','1');
+INSERT INTO equipaEscalao(nome, equipa_id,escalao_id) VALUES ('B','1','1');
 INSERT INTO equipaEscalao(equipa_id,escalao_id) VALUES ('1','2');
 INSERT INTO equipaEscalao(equipa_id,escalao_id) VALUES ('1','3');
 INSERT INTO equipaEscalao(equipa_id,escalao_id) VALUES ('2','1');
@@ -71,7 +73,8 @@ INSERT INTO equipaEscalao(equipa_id,escalao_id) VALUES ('3','1');
 INSERT INTO equipaEscalao(equipa_id,escalao_id) VALUES ('3','2');
 INSERT INTO equipaEscalao(equipa_id,escalao_id) VALUES ('3','3');
 INSERT INTO equipaEscalao(equipa_id,escalao_id) VALUES ('4','1');
-INSERT INTO equipaEscalao(equipa_id,escalao_id) VALUES ('4','2');
+INSERT INTO equipaEscalao(nome, equipa_id,escalao_id) VALUES ('A','4','2');
+INSERT INTO equipaEscalao(nome, equipa_id,escalao_id) VALUES ('B','4','2');
 INSERT INTO equipaEscalao(equipa_id,escalao_id) VALUES ('4','3');
 INSERT INTO equipaEscalao(equipa_id,escalao_id) VALUES ('5','1');
 INSERT INTO equipaEscalao(equipa_id,escalao_id) VALUES ('6','1');
