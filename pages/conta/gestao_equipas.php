@@ -13,6 +13,9 @@ if($_SESSION['username']) {
 		$escaloes[$value['escalao_id']] = $value['nome'];
 	}
 	
+	var_dump($escaloes);
+
+	//var_dump($equipaEscaloes);
 
 	$smarty->assign('equipaEscaloes', $equipaEscaloes);
 	$smarty->assign('escaloes', $escaloes);
