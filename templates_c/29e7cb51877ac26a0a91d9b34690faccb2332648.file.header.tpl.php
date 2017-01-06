@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-09-23 18:41:50
+<?php /* Smarty version Smarty-3.1.15, created on 2016-12-30 18:53:32
          compiled from "\XAMPP\htdocs\ABP\templates\common\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3116957e55b4e3c4ad5-96456017%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '29e7cb51877ac26a0a91d9b34690faccb2332648' => 
     array (
       0 => '\\XAMPP\\htdocs\\ABP\\templates\\common\\header.tpl',
-      1 => 1474047908,
+      1 => 1483120406,
       2 => 'file',
     ),
   ),
@@ -15,16 +15,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_57e55b4e8fdbb2_98833996',
   'variables' => 
   array (
     'BASE_URL' => 0,
     'USERNAME' => 0,
+    'escaloes' => 0,
+    'escalao_id' => 0,
+    'escalao' => 0,
     'equipaEscaloes' => 0,
     'equipaEscalao' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_57e55b4e8fdbb2_98833996',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_57e55b4e8fdbb2_98833996')) {function content_57e55b4e8fdbb2_98833996($_smarty_tpl) {?><!DOCTYPE html>
 <html>
@@ -67,23 +70,44 @@ pages/presentation/presentation.php">ABP</a>
             <div class="collapse navbar-collapse" id="menu">
                 <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value) {?>
                 <ul class="nav navbar-nav">
-                    <!--<li id="nav_calendar"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/calendar/calendar.php">Calendário</a></li>-->
-                    <?php  $_smarty_tpl->tpl_vars['equipaEscalao'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['equipaEscalao']->_loop = false;
+                    
+                    <?php  $_smarty_tpl->tpl_vars['escalao'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['escalao']->_loop = false;
+ $_smarty_tpl->tpl_vars['escalao_id'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->tpl_vars['escaloes']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['escalao']->key => $_smarty_tpl->tpl_vars['escalao']->value) {
+$_smarty_tpl->tpl_vars['escalao']->_loop = true;
+ $_smarty_tpl->tpl_vars['escalao_id']->value = $_smarty_tpl->tpl_vars['escalao']->key;
+?>
+                    <li  class="dropdown" id="escalao_<?php echo $_smarty_tpl->tpl_vars['escalao_id']->value;?>
+">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mini <?php echo $_smarty_tpl->tpl_vars['escalao']->value;?>
+<span class="caret"></span></a>
+                         <ul class="dropdown-menu">
+                         <?php  $_smarty_tpl->tpl_vars['equipaEscalao'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['equipaEscalao']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['equipaEscaloes']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['equipaEscalao']->key => $_smarty_tpl->tpl_vars['equipaEscalao']->value) {
 $_smarty_tpl->tpl_vars['equipaEscalao']->_loop = true;
 ?>
-                        <li id="escalao_<?php echo $_smarty_tpl->tpl_vars['equipaEscalao']->value['escalao_id'];?>
-">
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/calendar/calendar.php?escalao_id=<?php echo $_smarty_tpl->tpl_vars['equipaEscalao']->value['escalao_id'];?>
-">Mini <?php echo $_smarty_tpl->tpl_vars['equipaEscalao']->value["nome"];?>
-</a>
-                        </li>
+                         <?php if ($_smarty_tpl->tpl_vars['equipaEscalao']->value['escalao_id']==$_smarty_tpl->tpl_vars['escalao_id']->value) {?>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/calendar/calendar.php?escalao_id=<?php echo $_smarty_tpl->tpl_vars['escalao_id']->value;?>
+&equipaescalao_id=<?php echo $_smarty_tpl->tpl_vars['equipaEscalao']->value['equipaescalao_id'];?>
+">Mini <?php echo $_smarty_tpl->tpl_vars['escalao']->value;?>
+ <?php echo $_smarty_tpl->tpl_vars['equipaEscalao']->value['equipaescalao_nome'];?>
+</a></li>
+                            <?php }?>
+                        <?php } ?>
+                        </ul> 
+                    </li>
                     <?php } ?>
-                    <li id="nav_profile"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/perfil/perfil.php">Conta</a></li>
+                    <li class="dropdown" id="nav_profile"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Conta<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/conta/gestao_equipas.php">Gestão de Equipas</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/conta/alteracao_password.php">Alteração de Password</a></li>
+                        </ul> 
+                    </li>
                     <!-- <li><a id="nav_historico" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 ">Histórico</a></li> -->
                 </ul>           

@@ -8,9 +8,15 @@ if($_SESSION['username']) {
 
 	$equipaEscaloes = getEquipaEscaloes($_SESSION['username']);
 
-	$smarty->assign('equipaEscaloes', $equipaEscaloes);
+	$escaloes;
+	foreach ($equipaEscaloes as $key => $value) {
+		$escaloes[$value['escalao_id']] = $value['nome'];
+	}
+	
 
-	$smarty->display('perfil/perfil.tpl');
+	$smarty->assign('equipaEscaloes', $equipaEscaloes);
+	$smarty->assign('escaloes', $escaloes);
+	$smarty->display('conta/alteracao_password.tpl');
 }
 else
 	header('Location: ../presentation/presentation.php');

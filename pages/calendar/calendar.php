@@ -9,30 +9,40 @@ if($_SESSION['username']) {
 	$equipaEscaloes = getEquipaEscaloes($_SESSION['username']);
 	$disponibilidade;
 
-	if($_GET['escalao_id']) {
-		$disponibilidade = getDisponibilidade($_GET['escalao_id']);
-		$smarty->assign('escalaoSelecionado', $_GET['escalao_id']);
+	foreach($equipaEscaloes as $equipaEscalao)
+	{
+		if($equipaEscalao['equipaescalao_id'] == $_GET['equipaescalao_id'])
+		{
+			$escaloes;
+			foreach ($equipaEscaloes as $key => $value) {
+			$escaloes[$value['escalao_id']] = $value['nome'];
+			}
+	
+
+			if($_GET['escalao_id'] && $_GET['equipaescalao_id']) {
+				$disponibilidade = getDisponibilidade($_GET['escalao_id']);
+				$smarty->assign('escalaoSelecionado', $_GET['escalao_id']);
+			 	$smarty->assign('equipaescalao', $_GET['equipaescalao_id']);
+			}
+			else{
+			
+				$disponibilidade = getDisponibilidade($equipaEscaloes[0][escalao_id]);
+				$smarty->assign('escalaoSelecionado', $equipaEscaloes[0][escalao_id]);
+				$smarty->assign('equipaescalao', $equipaEscaloes[0][equipaescalao_id]);
+			}
+
+
+			$smarty->assign('disponibilidade', $disponibilidade);
+			$smarty->assign('equipaEscaloes', $equipaEscaloes);
+			$smarty->assign('escaloes', $escaloes);
+
+			$smarty->display('calendar/calendar.tpl');
+
+			return;
+		}
 	}
-	else{
-		
-		$disponibilidade = getDisponibilidade($equipaEscaloes[0][escalao_id]);
-		$smarty->assign('escalaoSelecionado', $equipaEscaloes[0][escalao_id]);
-	}
-
-
-
-
-
-	$smarty->assign('disponibilidade', $disponibilidade);
-	$smarty->assign('equipaEscaloes', $equipaEscaloes);
-
-
-
-
-
-	$smarty->display('calendar/calendar.tpl');
 }
-else
-	header('Location: ../presentation/presentation.php');
+
+header('Location: ../presentation/presentation.php');
 
 ?>

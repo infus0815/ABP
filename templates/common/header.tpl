@@ -34,13 +34,25 @@
             <div class="collapse navbar-collapse" id="menu">
                 {if $USERNAME}
                 <ul class="nav navbar-nav">
-                    <!--<li id="nav_calendar"><a href="{$BASE_URL}pages/calendar/calendar.php">Calendário</a></li>-->
-                    {foreach $equipaEscaloes as $equipaEscalao}
-                        <li id="escalao_{$equipaEscalao['escalao_id']}">
-                        <a href="{$BASE_URL}pages/calendar/calendar.php?escalao_id={$equipaEscalao['escalao_id']}">Mini {$equipaEscalao["nome"]}</a>
-                        </li>
+                    
+                    {foreach from=$escaloes key=escalao_id item=escalao}
+                    <li  class="dropdown" id="escalao_{$escalao_id}">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mini {$escalao}<span class="caret"></span></a>
+                         <ul class="dropdown-menu">
+                         {foreach $equipaEscaloes as $equipaEscalao}
+                         {if $equipaEscalao['escalao_id'] == $escalao_id}
+                            <li><a href="{$BASE_URL}pages/calendar/calendar.php?escalao_id={$escalao_id}&equipaescalao_id={$equipaEscalao['equipaescalao_id']}">Mini {$escalao} {$equipaEscalao['equipaescalao_nome']}</a></li>
+                            {/if}
+                        {/foreach}
+                        </ul> 
+                    </li>
                     {/foreach}
-                    <li id="nav_profile"><a href="{$BASE_URL}pages/perfil/perfil.php">Conta</a></li>
+                    <li class="dropdown" id="nav_profile"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Conta<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{$BASE_URL}pages/conta/gestao_equipas.php">Gestão de Equipas</a></li>
+                            <li><a href="{$BASE_URL}pages/conta/alteracao_password.php">Alteração de Password</a></li>
+                        </ul> 
+                    </li>
                     <!-- <li><a id="nav_historico" href="{$BASE_URL}">Histórico</a></li> -->
                 </ul>           
                 <form action="{$BASE_URL}actions/equipas/logout.php" class="navbar-form navbar-right">
