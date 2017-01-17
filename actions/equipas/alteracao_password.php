@@ -32,7 +32,7 @@
             $_SESSION['error_messages'][] = "Antiga password errada.";
         }
         else
-          $_SESSION['error_messages'][] = "O novo password deve conter pelo menos 5 dígitos.";  
+          $_SESSION['error_messages'][] = "A nova password deve conter pelo menos 5 dígitos.";
       }
       else
         $_SESSION['error_messages'][] = "Nova password apenas pode conter números e letras.";      

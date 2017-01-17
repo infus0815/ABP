@@ -54,11 +54,14 @@
           <ul id="equipas_manha" class="list-group">
           </ul>
           <form role="form" id="disp_manha">
+            {if $USERNAME != "admin"}
             <div class="checkbox">
               <label><input type="checkbox" value="">Participar</label>
               <label><input type="checkbox" value="">Organizar</label>
             </div>
-            <div id="buttondiv_manha"></div>  
+
+            <div id="buttondiv_manha"></div>
+            {/if}
           </form>
         </div>
         <div class="col-sm-6 panel">
@@ -66,11 +69,14 @@
           <ul id="equipas_tarde" class="list-group">
           </ul>
           <form role="form" id="disp_tarde">
+            {if $USERNAME != "admin"}
             <div class="checkbox">
               <label><input type="checkbox" value="">Participar</label>
               <label><input type="checkbox" value="">Organizar</label>
             </div>
-            <div id="buttondiv_tarde"></div> 
+
+            <div id="buttondiv_tarde"></div>
+            {/if}
           </form>
         </div>
       </div>

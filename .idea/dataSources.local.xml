@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="PostgreSQL - postgres@localhost" uuid="f7605c64-06ab-4c9e-9895-9760ba67a464">
+    <data-source name="PostgreSQL - ABP@localhost" uuid="60c77070-8fdb-426b-9b5f-69017e1312fd">
       <secret-storage>master_key</secret-storage>
-      <schema-pattern>postgres.*</schema-pattern>
-      <default-schemas>postgres.*</default-schemas>
+      <schema-pattern>ABP.*</schema-pattern>
+      <default-schemas>ABP.*</default-schemas>
     </data-source>
   </component>
 </project>

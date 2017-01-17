@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="4111004402">
-    <data-source source="LOCAL" name="PostgreSQL - postgres@localhost" uuid="f7605c64-06ab-4c9e-9895-9760ba67a464">
+  <component name="DataSourceManagerImpl" format="xml" hash="2751673371">
+    <data-source source="LOCAL" name="PostgreSQL - ABP@localhost" uuid="60c77070-8fdb-426b-9b5f-69017e1312fd">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/ABP</jdbc-url>
     </data-source>
   </component>
 </project>

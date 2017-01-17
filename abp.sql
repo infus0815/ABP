@@ -2,6 +2,8 @@ DROP TABLE  if exists equipa cascade;
 DROP TABLE  if exists escalao cascade;
 DROP TABLE  if exists disponibilidade cascade;
 DROP TABLE  if exists agenda cascade;
+DROP TABLE  if exists equipaEscalao cascade;
+DROP TABLE  if exists disabledMonth cascade;
 
 DROP SCHEMA if exists public CASCADE;
 
@@ -48,9 +50,17 @@ CREATE TABLE disponibilidade (
   CONSTRAINT restricao_disponibilidade UNIQUE (equipaEscalao_id, agenda_id)
 );
 
+CREATE TABLE disabledMonth (
+  disabledMonth_id SERIAL PRIMARY KEY,
+  month INTEGER NOT NULL,
+  year INTEGER NOT NULL,
+  CONSTRAINT restricao_disabledMonth UNIQUE (month, year)
+);
+
 INSERT into escalao(nome) VALUES ('8');
 INSERT into escalao(nome) VALUES ('10');
 INSERT into escalao(nome) VALUES ('12');
+
 
 
 INSERT INTO equipa(username,nome,password) VALUES ('guifoes','Guifoes Sport Clube','79ec5b2abcbafe118d23f4f945407c506215b2d9');
@@ -60,7 +70,7 @@ INSERT INTO equipa(username,nome,password) VALUES ('5basket','Clube 5Basket','71
 INSERT INTO equipa(username,nome,password) VALUES ('propaganda','Clube Propaganda de Natação','7d128be512582563e41759338f21cecd215f396e');
 INSERT INTO equipa(username,nome,password) VALUES ('clubegaia','Futebol Clube de Gaia','6a7aa4e489f94a341f2e7bcbb738407672a5519f');
 INSERT INTO equipa(username,nome,password) VALUES ('fcporto','F. C. Porto','348ccdc1172910da257304fa9893d69b444f0843');
-
+INSERT INTO equipa(username,nome,password) VALUES ('admin','admin','dd94709528bb1c83d08f3088d4043f4742891f4f');
 
 
 INSERT INTO equipaEscalao(nome, equipa_id,escalao_id) VALUES ('A','1','1');
@@ -82,3 +92,6 @@ INSERT INTO equipaEscalao(equipa_id,escalao_id) VALUES ('6','3');
 INSERT INTO equipaEscalao(equipa_id,escalao_id) VALUES ('7','1');
 INSERT INTO equipaEscalao(equipa_id,escalao_id) VALUES ('7','2');
 INSERT INTO equipaEscalao(equipa_id,escalao_id) VALUES ('7','3');
+INSERT INTO equipaEscalao(equipa_id,escalao_id) VALUES ('8','1');
+INSERT INTO equipaEscalao(equipa_id,escalao_id) VALUES ('8','2');
+INSERT INTO equipaEscalao(equipa_id,escalao_id) VALUES ('8','3');

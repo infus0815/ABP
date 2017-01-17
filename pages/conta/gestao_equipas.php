@@ -12,13 +12,14 @@ if($_SESSION['username']) {
 	foreach ($equipaEscaloes as $key => $value) {
 		$escaloes[$value['escalao_id']] = $value['nome'];
 	}
-	
-	var_dump($escaloes);
 
-	//var_dump($equipaEscaloes);
+	$escaloes_all = listEscaloes();
+
+	
 
 	$smarty->assign('equipaEscaloes', $equipaEscaloes);
 	$smarty->assign('escaloes', $escaloes);
+	$smarty->assign('escaloes_all', $escaloes_all);
 	$smarty->display('conta/gestao_equipas.tpl');
 }
 else

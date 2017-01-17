@@ -21,7 +21,7 @@
 
 <body>
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default" >
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="{$BASE_URL}pages/presentation/presentation.php">ABP</a>
@@ -49,14 +49,28 @@
                     {/foreach}
                     <li class="dropdown" id="nav_profile"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Conta<span class="caret"></span></a>
                         <ul class="dropdown-menu">
+                            {if $USERNAME != "admin"}
                             <li><a href="{$BASE_URL}pages/conta/gestao_equipas.php">Gestão de Equipas</a></li>
+                            {/if}
                             <li><a href="{$BASE_URL}pages/conta/alteracao_password.php">Alteração de Password</a></li>
                         </ul> 
                     </li>
+                    {if $USERNAME == "admin"}
+                    <li class="dropdown" id="admin"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Administração<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{$BASE_URL}pages/admin/equipas.php">Criação de Equipas</a></li>
+                            <li><a href="{$BASE_URL}pages/admin/gestao_meses.php">Bloqueio de Meses</a></li>
+                        </ul>
+                    </li>
+                    {/if}
                     <!-- <li><a id="nav_historico" href="{$BASE_URL}">Histórico</a></li> -->
                 </ul>           
                 <form action="{$BASE_URL}actions/equipas/logout.php" class="navbar-form navbar-right">
-                    <label style="color:white; padding-right:10px">{$USERNAME}</label>
+                    {if $USERNAME == "admin"}
+                        <label style="color:#ff4d4d; padding-right:10px">Administrador</label>
+                    {else}
+                        <label style="color:white; padding-right:10px">{$USERNAME}</label>
+                    {/if}
                     <button type="submit" class="btn"><span class="glyphicon glyphicon-log-out"></span> Logout</button>
                 </form>
                 {else}

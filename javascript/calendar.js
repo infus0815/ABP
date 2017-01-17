@@ -15,12 +15,17 @@ $(document).ready(function () {
 function generatePicker(date) {
 
     confirmacoes_datas = getDateArray(disponibilidade);
+    mindate = date;
+    if(date.getDay() > 0 && date.getDay() < 5)
+        date.setDate(date.getDate() + 5 - date.getDay());
+    if(username == "admin")
+        mindate = null;
     $('#datepicker').datepicker(
         {
             dateFormat: "yy-mm-dd",
             beforeShowDay: setStyles,
             onSelect: setEquipas,
-            minDate: date
+            minDate: mindate
         }
     ).datepicker("setDate",date);
 
@@ -31,6 +36,12 @@ function generatePicker(date) {
 
 function setStyles(date) {
 
+    var day = date.getDay();
+
+    if(day > 0 && day < 5)
+            return false;
+    if(username != "admin")
+        lala = 'todo';
     var fdate = $.datepicker.formatDate("yy-mm-dd",date);
     var equipas_data = getEquipaDataCSS(fdate);
     if($.inArray(fdate,confirmacoes_datas) >= 0)
@@ -85,7 +96,7 @@ function updateEquipasList(data, horario) {
             equipas_list.push(disponibilidade[x]);
     }
 
-    console.log(equipas_list);
+
 
     var equipas_list_html = "";
 
@@ -158,9 +169,7 @@ function setButton(date) {
         var equipas_manha = getEquipaData(date, 0);
         var equipas_tarde = getEquipaData(date, 1);
 
-        console.log(equipas_manha);
-        console.log(equipas_tarde);
-        console.log(disponibilidade);
+
 
 
         if ($.inArray(equipaEscalao_id, equipas_manha) >= 0) {
@@ -194,7 +203,7 @@ function registaEquipa(horario){
     var fdate = $.datepicker.formatDate("yy-mm-dd",currentDate);
     var organizador;
 
-    console.log("ola");
+
 
     if(horario == 0) {
 
@@ -206,7 +215,7 @@ function registaEquipa(horario){
         organizador = $("#disp_tarde input:last").prop("checked")? 1 : 0;
     }
 
-    console.log(organizador);
+
 
 
     $.post(BASE_URL + "api/calendar/registaEquipa.php",
