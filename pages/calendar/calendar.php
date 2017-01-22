@@ -3,6 +3,7 @@
 include_once('../../config/init.php');
 include_once($BASE_DIR .'database/equipa_confirmacao.php');
 include_once($BASE_DIR .'database/equipas.php');
+include_once($BASE_DIR .'database/admin.php');
 
 
 if($_SESSION['username']) {
@@ -32,7 +33,11 @@ if($_SESSION['username']) {
 			}
 
 
+			$disabledmonths = listdisableMonth();
+
+
 			$smarty->assign('disponibilidade', $disponibilidade);
+			$smarty->assign('disabledmonths', $disabledmonths);
 			$smarty->assign('equipaEscaloes', $equipaEscaloes);
 			$smarty->assign('escaloes', $escaloes);
 

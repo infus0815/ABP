@@ -9,6 +9,11 @@ $(document).ready(function () {
     $("#nav_calendar").addClass("active");
     $("#escalao_" + escalaoSelecionado).addClass("active");
 
+    
+
+
+    console.log(disabledmonths);
+
 });
 
 
@@ -41,7 +46,12 @@ function setStyles(date) {
     if(day > 0 && day < 5)
             return false;
     if(username != "admin")
-        lala = 'todo';
+    {
+        for(var x in disabledmonths) {
+            if(date.getFullYear() == disabledmonths[x]['year'] && date.getMonth() == disabledmonths[x]['month'])
+                    return false;
+        }
+    }
     var fdate = $.datepicker.formatDate("yy-mm-dd",date);
     var equipas_data = getEquipaDataCSS(fdate);
     if($.inArray(fdate,confirmacoes_datas) >= 0)
@@ -229,7 +239,8 @@ function registaEquipa(horario){
         },
         function(data){
             disponibilidade = $.parseJSON(data);
-            generatePicker(fdate);
+            date = new Date(fdate)
+            generatePicker(date);
 
         });
 }
@@ -249,7 +260,8 @@ function removeEquipa(horario){
         },
         function(data){
             disponibilidade = $.parseJSON(data);
-            generatePicker(fdate);
+            date = new Date(fdate)
+            generatePicker(date);
         });
 }
 

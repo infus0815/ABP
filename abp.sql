@@ -27,8 +27,8 @@ CREATE TABLE equipaEscalao (
   equipa_id INTEGER,
   escalao_id INTEGER,
   nome VARCHAR NOT NULL DEFAULT '',
-  FOREIGN KEY (equipa_id) REFERENCES equipa (equipa_id),
-  FOREIGN KEY (escalao_id) REFERENCES escalao (escalao_id),
+  FOREIGN KEY (equipa_id) REFERENCES equipa (equipa_id) ON DELETE CASCADE,
+  FOREIGN KEY (escalao_id) REFERENCES escalao (escalao_id) ON DELETE CASCADE,
   CONSTRAINT equipa_escalao UNIQUE (equipa_id, escalao_id, nome)
   );
 
@@ -45,8 +45,8 @@ CREATE TABLE disponibilidade (
   equipaEscalao_id INTEGER NOT NULL,
   agenda_id INTEGER NOT NULL,
   organizador BOOLEAN NOT NULL,
-  FOREIGN key (equipaescalao_id) REFERENCES equipaEscalao(equipaescalao_id),
-  FOREIGN key (agenda_id) REFERENCES agenda(agenda_id),
+  FOREIGN key (equipaescalao_id) REFERENCES equipaEscalao(equipaescalao_id) ON DELETE CASCADE,
+  FOREIGN key (agenda_id) REFERENCES agenda(agenda_id) ON DELETE CASCADE,
   CONSTRAINT restricao_disponibilidade UNIQUE (equipaEscalao_id, agenda_id)
 );
 

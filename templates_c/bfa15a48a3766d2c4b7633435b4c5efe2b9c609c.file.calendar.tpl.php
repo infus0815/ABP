@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-01-06 18:04:36
+<?php /* Smarty version Smarty-3.1.15, created on 2017-01-22 19:24:44
          compiled from "\XAMPP\htdocs\ABP\templates\calendar\calendar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:835957e55b6cdc3f74-14781465%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bfa15a48a3766d2c4b7633435b4c5efe2b9c609c' => 
     array (
       0 => '\\XAMPP\\htdocs\\ABP\\templates\\calendar\\calendar.tpl',
-      1 => 1483093640,
+      1 => 1485109421,
       2 => 'file',
     ),
   ),
@@ -24,6 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'escalaoSelecionado' => 0,
     'equipaescalao' => 0,
     'equipaEscaloes' => 0,
+    'disabledmonths' => 0,
     'equipaEscalao' => 0,
   ),
   'has_nocache_code' => false,
@@ -42,6 +43,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   var equipaEscalao_id = <?php echo $_smarty_tpl->tpl_vars['equipaescalao']->value;?>
 ;
   var equipaEscaloes = <?php echo json_encode($_smarty_tpl->tpl_vars['equipaEscaloes']->value);?>
+;
+  var disabledmonths = <?php echo json_encode($_smarty_tpl->tpl_vars['disabledmonths']->value);?>
 ;
 
   // for(var x in equipaEscaloes) {
@@ -97,11 +100,14 @@ $_smarty_tpl->tpl_vars['equipaEscalao']->_loop = true;
           <ul id="equipas_manha" class="list-group">
           </ul>
           <form role="form" id="disp_manha">
+            <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value!="admin") {?>
             <div class="checkbox">
               <label><input type="checkbox" value="">Participar</label>
               <label><input type="checkbox" value="">Organizar</label>
             </div>
-            <div id="buttondiv_manha"></div>  
+
+            <div id="buttondiv_manha"></div>
+            <?php }?>
           </form>
         </div>
         <div class="col-sm-6 panel">
@@ -109,11 +115,14 @@ $_smarty_tpl->tpl_vars['equipaEscalao']->_loop = true;
           <ul id="equipas_tarde" class="list-group">
           </ul>
           <form role="form" id="disp_tarde">
+            <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value!="admin") {?>
             <div class="checkbox">
               <label><input type="checkbox" value="">Participar</label>
               <label><input type="checkbox" value="">Organizar</label>
             </div>
-            <div id="buttondiv_tarde"></div> 
+
+            <div id="buttondiv_tarde"></div>
+            <?php }?>
           </form>
         </div>
       </div>

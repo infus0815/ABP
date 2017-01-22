@@ -1,4 +1,33 @@
-{include file='common/header.tpl'}
+<?php /* Smarty version Smarty-3.1.15, created on 2017-01-22 19:24:13
+         compiled from "\XAMPP\htdocs\ABP\templates\admin\gestao_meses.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:268945884e0df158970-93996214%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '041d43e825baa26a7e9613f0e83aa527aa827aee' => 
+    array (
+      0 => '\\XAMPP\\htdocs\\ABP\\templates\\admin\\gestao_meses.tpl',
+      1 => 1485109271,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '268945884e0df158970-93996214',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_5884e0df197e93_20090076',
+  'variables' => 
+  array (
+    'disabledMonths' => 0,
+    'disabledMonth' => 0,
+    'listaMeses' => 0,
+    'BASE_URL' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_5884e0df197e93_20090076')) {function content_5884e0df197e93_20090076($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('common/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
 
 <script>
 
@@ -42,20 +71,29 @@
             </tr>
         </thead>
         <tbody>
-            {foreach $disabledMonths as $disabledMonth}
+            <?php  $_smarty_tpl->tpl_vars['disabledMonth'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['disabledMonth']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['disabledMonths']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['disabledMonth']->key => $_smarty_tpl->tpl_vars['disabledMonth']->value) {
+$_smarty_tpl->tpl_vars['disabledMonth']->_loop = true;
+?>
             <tr>
-                <td>{$disabledMonth['disabledmonth_id']}</td>
-                <td>{$listaMeses[$disabledMonth['month']]}</td>
-                <td>{$disabledMonth['year']}</td>
+                <td><?php echo $_smarty_tpl->tpl_vars['disabledMonth']->value['disabledmonth_id'];?>
+</td>
+                <td><?php echo $_smarty_tpl->tpl_vars['listaMeses']->value[$_smarty_tpl->tpl_vars['disabledMonth']->value['month']];?>
+</td>
+                <td><?php echo $_smarty_tpl->tpl_vars['disabledMonth']->value['year'];?>
+</td>
                 <td>
                     <span class="pull-right">
-                                            <a class="btn btn-xs btn-danger" href="{$BASE_URL}actions/admin/delete_disablemonth.php?disablemonth_id={$disabledMonth['disabledmonth_id']}">
+                                            <a class="btn btn-xs btn-danger" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/admin/delete_disablemonth.php?disablemonth_id=<?php echo $_smarty_tpl->tpl_vars['disabledMonth']->value['disabledmonth_id'];?>
+">
                                                 <span class="glyphicon glyphicon-remove"></span>
                                             </a>
                     </span>
                 <td>
             </tr>
-            {/foreach}
+            <?php } ?>
         </tbody>
     </table>
 
@@ -67,7 +105,8 @@
                 <div class="panel-heading">Bloquear Mês</div>
                     <div class="panel-body">
 
-                        <form action="{$BASE_URL}actions/admin/disableMonth.php" method="get" enctype="multipart/form-data">
+                        <form action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/admin/disableMonth.php" method="get" enctype="multipart/form-data">
 
                         <div class="row">
                             <div class="form-group col-md-6" >
@@ -117,3 +156,4 @@
 
 
 
+<?php }} ?>

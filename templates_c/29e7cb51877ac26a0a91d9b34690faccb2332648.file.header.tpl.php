@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-12-30 18:53:32
+<?php /* Smarty version Smarty-3.1.15, created on 2017-01-22 17:21:30
          compiled from "\XAMPP\htdocs\ABP\templates\common\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3116957e55b4e3c4ad5-96456017%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '29e7cb51877ac26a0a91d9b34690faccb2332648' => 
     array (
       0 => '\\XAMPP\\htdocs\\ABP\\templates\\common\\header.tpl',
-      1 => 1483120406,
+      1 => 1485102016,
       2 => 'file',
     ),
   ),
@@ -56,7 +56,7 @@ javascript/main.js"></script>
 
 <body>
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default" >
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -102,19 +102,35 @@ pages/calendar/calendar.php?escalao_id=<?php echo $_smarty_tpl->tpl_vars['escala
                     <?php } ?>
                     <li class="dropdown" id="nav_profile"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Conta<span class="caret"></span></a>
                         <ul class="dropdown-menu">
+                            <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value!="admin") {?>
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/conta/gestao_equipas.php">Gestão de Equipas</a></li>
+                            <?php }?>
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/conta/alteracao_password.php">Alteração de Password</a></li>
                         </ul> 
                     </li>
+                    <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value=="admin") {?>
+                    <li class="dropdown" id="admin"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Administração<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/admin/equipas.php">Criação de Equipas</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/admin/gestao_meses.php">Bloqueio de Meses</a></li>
+                        </ul>
+                    </li>
+                    <?php }?>
                     <!-- <li><a id="nav_historico" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 ">Histórico</a></li> -->
                 </ul>           
                 <form action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 actions/equipas/logout.php" class="navbar-form navbar-right">
-                    <label style="color:white; padding-right:10px"><?php echo $_smarty_tpl->tpl_vars['USERNAME']->value;?>
+                    <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value=="admin") {?>
+                        <label style="color:#ff4d4d; padding-right:10px">Administrador</label>
+                    <?php } else { ?>
+                        <label style="color:white; padding-right:10px"><?php echo $_smarty_tpl->tpl_vars['USERNAME']->value;?>
 </label>
+                    <?php }?>
                     <button type="submit" class="btn"><span class="glyphicon glyphicon-log-out"></span> Logout</button>
                 </form>
                 <?php } else { ?>

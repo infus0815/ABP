@@ -16,10 +16,15 @@ if($_SESSION['username'] == "admin") {
     $disabledMonths = listdisableMonth();
 
 
+    $listaMeses = [ "Janeiro","Fevereiro","Março","Abril","Maio","Junho",
+    "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro" ];
+
+
 
 
 
     $smarty->assign('equipaEscaloes', $equipaEscaloes);
+    $smarty->assign('listaMeses', $listaMeses);
     $smarty->assign('disabledMonths', $disabledMonths);
     $smarty->assign('escaloes', $escaloes);
     $smarty->display('admin/gestao_meses.tpl');
