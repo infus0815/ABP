@@ -1,4 +1,5 @@
-BASE_URL = '/ABP/';
+//BASE_URL = '/ABP/';
+BASE_URL = '/app/';
 
 // $(document).ready(function() {
 //   initMessageClosers();

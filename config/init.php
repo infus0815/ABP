@@ -1,15 +1,18 @@
 <?php
   error_reporting(E_ERROR | E_WARNING); // E_NOTICE by default
-  session_set_cookie_params(3600, '/~ABP',false); //FIXME
+  session_set_cookie_params(3600, '/',false); //FIXME
+  //session_set_cookie_params(3600, '/~ABP',false); //FIXME
   session_start();
 
 
 
-  $BASE_DIR = '/XAMPP/htdocs/ABP/'; //FIXME
-  $BASE_URL = 'http://localhost/ABP/'; //FIXME
+  //$BASE_DIR = '/XAMPP/htdocs/ABP/'; //FIXME
+  $BASE_DIR = '/app/'; //FIXME
+  //$BASE_URL = 'http://localhost/ABP/'; //FIXME
+  $BASE_URL = 'https://abptest.herokuapp.com/'; //FIXME
 
-  /*$conn = new PDO('pgsql:host=ec2-54-228-213-160.eu-west-1.compute.amazonaws.com;port=5432;dbname=dctubk3br1l10f','knlvvpesmrzumh','7dX-iWONADRZqT-N4SohQhUooZ'); //FIXME*/
-  $conn = new PDO('pgsql:host=localhost;port=5432;dbname=ABP');
+  $conn = new PDO('pgsql:host=ec2-54-228-213-160.eu-west-1.compute.amazonaws.com;port=5432;dbname=dctubk3br1l10f','knlvvpesmrzumh','7dX-iWONADRZqT-N4SohQhUooZ'); //FIXME*/
+  //$conn = new PDO('pgsql:host=localhost;port=5432;dbname=ABP');
   $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
