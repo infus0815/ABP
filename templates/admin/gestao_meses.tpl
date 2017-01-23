@@ -67,7 +67,7 @@
                 <div class="panel-heading">Bloquear Mês</div>
                     <div class="panel-body">
 
-                        <form action="{$BASE_URL}actions/admin/disableMonth.php" method="get" enctype="multipart/form-data">
+                        <form action="{$BASE_URL}actions/admin/disablemonth.php" method="get" enctype="multipart/form-data">
 
                         <div class="row">
                             <div class="form-group col-md-6" >
