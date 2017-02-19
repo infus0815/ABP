@@ -6,5 +6,9 @@
       <schema-pattern>ABP.*</schema-pattern>
       <default-schemas>ABP.*</default-schemas>
     </data-source>
+    <data-source name="MySQL - ABP@localhost" uuid="56764c76-f0d8-44b2-b70b-55d072d0f1f9">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+    </data-source>
   </component>
 </project>
