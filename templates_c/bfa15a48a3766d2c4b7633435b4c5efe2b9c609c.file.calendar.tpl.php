@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-01-22 19:24:44
+<?php /* Smarty version Smarty-3.1.15, created on 2017-02-19 13:35:22
          compiled from "\XAMPP\htdocs\ABP\templates\calendar\calendar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:835957e55b6cdc3f74-14781465%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bfa15a48a3766d2c4b7633435b4c5efe2b9c609c' => 
     array (
       0 => '\\XAMPP\\htdocs\\ABP\\templates\\calendar\\calendar.tpl',
-      1 => 1485109421,
+      1 => 1487507720,
       2 => 'file',
     ),
   ),
@@ -40,12 +40,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ';
   var escalaoSelecionado = '<?php echo $_smarty_tpl->tpl_vars['escalaoSelecionado']->value;?>
 ';
-  var equipaEscalao_id = <?php echo $_smarty_tpl->tpl_vars['equipaescalao']->value;?>
-;
+  var equipaEscalao_id = '<?php echo $_smarty_tpl->tpl_vars['equipaescalao']->value;?>
+';
   var equipaEscaloes = <?php echo json_encode($_smarty_tpl->tpl_vars['equipaEscaloes']->value);?>
 ;
   var disabledmonths = <?php echo json_encode($_smarty_tpl->tpl_vars['disabledmonths']->value);?>
 ;
+
+
 
   // for(var x in equipaEscaloes) {
     

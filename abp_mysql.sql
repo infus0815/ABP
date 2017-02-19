@@ -45,19 +45,19 @@ CREATE TABLE agenda (
 
 CREATE TABLE disponibilidade (
   disponibilidade_id   INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  equipaEscalao_id INTEGER NOT NULL,
+  equipaescalao_id INTEGER NOT NULL,
   agenda_id INTEGER NOT NULL,
   organizador BOOLEAN NOT NULL,
   FOREIGN key (equipaescalao_id) REFERENCES equipaEscalao(equipaescalao_id) ON DELETE CASCADE,
   FOREIGN key (agenda_id) REFERENCES agenda(agenda_id) ON DELETE CASCADE,
-  CONSTRAINT restricao_disponibilidade UNIQUE (equipaEscalao_id, agenda_id)
+  CONSTRAINT restricao_disponibilidade UNIQUE (equipaescalao_id, agenda_id)
 );
 
 CREATE TABLE disabledMonth (
-  disabledMonth_id INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  disabledmonth_id INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
   month INTEGER NOT NULL,
   year INTEGER NOT NULL,
-  CONSTRAINT restricao_disabledMonth UNIQUE (month, year)
+  CONSTRAINT restricao_disabledmonth UNIQUE (month, year)
 );
 
 INSERT into escalao(nome) VALUES ('8');

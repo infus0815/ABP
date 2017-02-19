@@ -5,9 +5,11 @@
   var disponibilidade = {$disponibilidade|json_encode};
   var username = '{$USERNAME}';
   var escalaoSelecionado = '{$escalaoSelecionado}';
-  var equipaEscalao_id = {$equipaescalao};
+  var equipaEscalao_id = '{$equipaescalao}';
   var equipaEscaloes = {$equipaEscaloes|json_encode};
   var disabledmonths = {$disabledmonths|json_encode};
+
+
 
   // for(var x in equipaEscaloes) {
     

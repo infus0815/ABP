@@ -54,6 +54,7 @@ function setStyles(date) {
     }
     var fdate = $.datepicker.formatDate("yy-mm-dd",date);
     var equipas_data = getEquipaDataCSS(fdate);
+
     if($.inArray(fdate,confirmacoes_datas) >= 0)
         if($.inArray(equipaEscalao_id,equipas_data) >= 0) {
             return [true, "equipa-exists"];
@@ -108,6 +109,7 @@ function updateEquipasList(data, horario) {
 
 
 
+
     var equipas_list_html = "";
 
     if(equipas_list.length == 0)
@@ -116,7 +118,7 @@ function updateEquipasList(data, horario) {
     for(var x in equipas_list) {
 
         var equipa_nome = equipas_list[x].nome + " " + equipas_list[x].equipaescalao_nome ;
-        if(equipas_list[x].organizador)
+        if(equipas_list[x].organizador == "1")
             equipa_nome += '<span style="color:gray"> (organizador)</span>';
 
 

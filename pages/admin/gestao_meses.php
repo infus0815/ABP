@@ -21,8 +21,6 @@ if($_SESSION['username'] == "admin") {
 
 
 
-
-
     $smarty->assign('equipaEscaloes', $equipaEscaloes);
     $smarty->assign('listaMeses', $listaMeses);
     $smarty->assign('disabledMonths', $disabledMonths);
