@@ -84,7 +84,7 @@
 
 .equipa-exists .ui-state-default
 {
-  color: green;
+  color: Lime;
   font-weight: bold;
 }
 
@@ -115,6 +115,8 @@
     color: red;
     font-size: 70%;
 }
+
+@grid-float-breakpoint:     @screen-phone;
 
 
 
