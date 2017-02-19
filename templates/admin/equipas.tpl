@@ -6,14 +6,14 @@
 
 </script>
 
-
-<div class="modal fade" id="confirm-reset" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- modals -->
+<div class="modal fade" id="show-reset" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Nova password criada para a equipa <span class="equipa_nome"></span></h4>
+                <h4 class="modal-title" id="myModalLabel">Nova password criada para a equipa <span class="equipa_nome2"></span></h4>
             </div>
 
             <div class="modal-body">
@@ -31,8 +31,33 @@
     </div>
 </div>
 
+<div class="modal fade" id="confirm-reset" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Confirmar reset</h4>
+            </div>
+
+            <div class="modal-body">
+                <p>Deseja confirmar o reset de password da equipa <span class="equipa_nome1"></span>
+                </p>
 
 
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success btn-ok" data-dismiss="modal" data-content="{$equipa['username']}" data-toggle="modal" data-target="#show-reset">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- modals END-->
 
 <div class="container">
     <div>
@@ -56,6 +81,7 @@
             <td>{$equipa['nome']}</td>
             <td>
                 <span class="pull-right">
+                    <!--<button class="btn btn-xs btn" data-content="{$equipa['username']}" data-toggle="modal" data-target="#show-reset">Reset password</button>-->
                     <button class="btn btn-xs btn" data-content="{$equipa['username']}" data-toggle="modal" data-target="#confirm-reset">Reset password</button>
                 </span>
             </td>
@@ -106,7 +132,7 @@
 </div>
 
 <script>
-    $('#confirm-reset').on('show.bs.modal', function(e) {
+    $('#show-reset').on('show.bs.modal', function(e) {
         
 
 
@@ -118,13 +144,27 @@
         },
         function(data){
             new_password = $.parseJSON(data);
-            $('.equipa_nome').html('<strong>' +  $(e.relatedTarget).data('content') + '</strong>');
+            $('.equipa_nome2').html('<strong>' +  $(e.relatedTarget).data('content') + '</strong>');
             $('.modal_content').html('<strong>' +  new_password + '</strong>');
 
         });
 
         
     });
+
+    $('#confirm-reset').on('show.bs.modal', function(e) {
+
+        $(this).find('.btn-ok').attr('data-content', $(e.relatedTarget).data('content'));
+
+        $('.equipa_nome1').html('<strong>' +  $(e.relatedTarget).data('content') + '</strong>');
+
+
+
+
+    });
+
+
+
 </script>
 
 

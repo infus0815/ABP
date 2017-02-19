@@ -58,7 +58,7 @@
                     {if $USERNAME == "admin"}
                     <li class="dropdown" id="admin"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Administração<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{$BASE_URL}pages/admin/equipas.php">Criação de Equipas</a></li>
+                            <li><a href="{$BASE_URL}pages/admin/equipas.php">Gestão de Contas</a></li>
                             <li><a href="{$BASE_URL}pages/admin/gestao_meses.php">Bloqueio de Meses</a></li>
                         </ul>
                     </li>
@@ -82,7 +82,16 @@
                 {/if}
             </div>
         </div>
+
+        <div id="error_messages">
+            {foreach $ERROR_MESSAGES_LOGIN as $error}
+                <div class="error">{$error}<a class="close" href="#">X</a></div>
+            {/foreach}
+        </div>
+
     </nav>
+
+
 
     <div class="container-fluid">
 

@@ -24,7 +24,7 @@
     exit;
     
   } else {
-    $_SESSION['error_messages'][] = 'Login failed';  
+    $_SESSION['error_messages_login'][] = 'Username/password inválido';
   }
 
 
