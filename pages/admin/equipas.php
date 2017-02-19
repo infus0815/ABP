@@ -15,9 +15,6 @@ if($_SESSION['username'] == "admin") {
 
     $equipas = listEquipas();
 
-    
-    
-
 
     $smarty->assign('equipaEscaloes', $equipaEscaloes);
     $smarty->assign('equipas', $equipas);

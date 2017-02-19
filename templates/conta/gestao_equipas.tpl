@@ -105,7 +105,7 @@
 	$('#confirm-delete').on('show.bs.modal', function(e) {
 		$(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
 
-		$('.modal_content').html('<strong>' + $(e.relatedTarget).data('content') + '</strong>');
+		$('.modal_content').html('<strong>' +  $(e.relatedTarget).data('content') + '</strong>');
 	});
 </script>
 

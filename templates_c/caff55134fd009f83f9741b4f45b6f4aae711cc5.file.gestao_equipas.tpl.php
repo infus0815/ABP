@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2017-02-19 13:42:51
+<?php /* Smarty version Smarty-3.1.15, created on 2017-02-19 14:45:55
          compiled from "\XAMPP\htdocs\ABP\templates\conta\gestao_equipas.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:308515866a0d362a910-04617316%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'caff55134fd009f83f9741b4f45b6f4aae711cc5' => 
     array (
       0 => '\\XAMPP\\htdocs\\ABP\\templates\\conta\\gestao_equipas.tpl',
-      1 => 1487505864,
+      1 => 1487511954,
       2 => 'file',
     ),
   ),
@@ -175,7 +175,7 @@ $_smarty_tpl->tpl_vars['success_message']->_loop = true;
 	$('#confirm-delete').on('show.bs.modal', function(e) {
 		$(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
 
-		$('.modal_content').html('<strong>' + $(e.relatedTarget).data('content') + '</strong>');
+		$('.modal_content').html('<strong>' + "lalallala" + $(e.relatedTarget).data('content') + '</strong>');
 	});
 </script>
 

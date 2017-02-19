@@ -5,6 +5,35 @@
     $("#admin").addClass("active");
 
 </script>
+
+
+<div class="modal fade" id="confirm-reset" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Nova password criada para a equipa <span class="equipa_nome"></span></h4>
+            </div>
+
+            <div class="modal-body">
+                <p>Nova password é: <span class="modal_content"></span>
+                </p>
+                <p>Guarde esta password</p>
+                
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 <div class="container">
     <div>
         <h3>Lista de Contas</h3>
@@ -16,6 +45,7 @@
             <th>Id da Equipa</th>
             <th>Username</th>
             <th>Nome</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -24,6 +54,11 @@
             <td>{$equipa['equipa_id']}</td>
             <td>{$equipa['username']}</td>
             <td>{$equipa['nome']}</td>
+            <td>
+                <span class="pull-right">
+                    <button class="btn btn-xs btn" data-content="{$equipa['username']}" data-toggle="modal" data-target="#confirm-reset">Reset password</button>
+                </span>
+            </td>
         </tr>
         {/foreach}
         </tbody>
@@ -69,6 +104,28 @@
         </div>
     </div>
 </div>
+
+<script>
+    $('#confirm-reset').on('show.bs.modal', function(e) {
+        
+
+
+        $.post(BASE_URL + "api/admin/reset_password.php",
+        {
+            username: $(e.relatedTarget).data('content'),
+            
+
+        },
+        function(data){
+            new_password = $.parseJSON(data);
+            $('.equipa_nome').html('<strong>' +  $(e.relatedTarget).data('content') + '</strong>');
+            $('.modal_content').html('<strong>' +  new_password + '</strong>');
+
+        });
+
+        
+    });
+</script>
 
 
 {include file='common/footer.tpl'}

@@ -18,9 +18,9 @@ CREATE TABLE escalao (
 
 CREATE TABLE equipa (
   equipa_id INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  username VARCHAR(255) NOT NULL UNIQUE,
-  nome VARCHAR(255) NOT NULL,
-  password VARCHAR(255) NOT NULL
+  username VARCHAR(191) NOT NULL UNIQUE,
+  nome VARCHAR(191) NOT NULL,
+  password VARCHAR(191) NOT NULL
 );
 
 
@@ -28,7 +28,7 @@ CREATE TABLE equipaEscalao (
   equipaescalao_id INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
   equipa_id INTEGER,
   escalao_id INTEGER,
-  nome VARCHAR(255) NOT NULL DEFAULT '',
+  nome VARCHAR(191) NOT NULL DEFAULT '',
   FOREIGN KEY (equipa_id) REFERENCES equipa (equipa_id) ON DELETE CASCADE,
   FOREIGN KEY (escalao_id) REFERENCES escalao (escalao_id) ON DELETE CASCADE,
   CONSTRAINT equipa_escalao UNIQUE (equipa_id, escalao_id, nome)
