@@ -20,7 +20,7 @@
   // }
 </script>
 
-<script src="../../javascript/calendar.js"></script>
+<script src="../../javascript/calendarV2.js"></script>
 
 <div class="container">
   <div class="row">
