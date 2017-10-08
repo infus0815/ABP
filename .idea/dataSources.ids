@@ -62182,7 +62182,7 @@ horario</columns>
 horario</columns>
         <underlying-index>restricao_agenda</underlying-index>
       </key>
-      <column id="14" parent="3" name="disabledMonth_id">
+      <column id="14" parent="3" name="disabledmonth_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
@@ -62195,27 +62195,27 @@ horario</columns>
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <index id="17" parent="3" name="restricao_disabledMonth">
+      <index id="17" parent="3" name="restricao_disabledmonth">
         <columns>month
 year</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
       <key id="18" parent="3" name="PRIMARY">
-        <columns>disabledMonth_id</columns>
+        <columns>disabledmonth_id</columns>
         <primary>1</primary>
       </key>
-      <key id="19" parent="3" name="restricao_disabledMonth">
+      <key id="19" parent="3" name="restricao_disabledmonth">
         <columns>month
 year</columns>
-        <underlying-index>restricao_disabledMonth</underlying-index>
+        <underlying-index>restricao_disabledmonth</underlying-index>
       </key>
       <column id="20" parent="4" name="disponibilidade_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="21" parent="4" name="equipaEscalao_id">
+      <column id="21" parent="4" name="equipaescalao_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
@@ -62232,7 +62232,7 @@ year</columns>
         <desc-columns></desc-columns>
       </index>
       <index id="25" parent="4" name="restricao_disponibilidade">
-        <columns>equipaEscalao_id
+        <columns>equipaescalao_id
 agenda_id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
@@ -62242,12 +62242,12 @@ agenda_id</columns>
         <primary>1</primary>
       </key>
       <key id="27" parent="4" name="restricao_disponibilidade">
-        <columns>equipaEscalao_id
+        <columns>equipaescalao_id
 agenda_id</columns>
         <underlying-index>restricao_disponibilidade</underlying-index>
       </key>
       <foreign-key id="28" parent="4" name="disponibilidade_ibfk_1">
-        <columns>equipaEscalao_id</columns>
+        <columns>equipaescalao_id</columns>
         <ref-key>~.equipaescalao.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
@@ -62265,15 +62265,15 @@ agenda_id</columns>
       </column>
       <column id="31" parent="5" name="username">
         <mandatory>1</mandatory>
-        <data-type>varchar(255)</data-type>
+        <data-type>varchar(191)</data-type>
       </column>
       <column id="32" parent="5" name="nome">
         <mandatory>1</mandatory>
-        <data-type>varchar(255)</data-type>
+        <data-type>varchar(191)</data-type>
       </column>
       <column id="33" parent="5" name="password">
         <mandatory>1</mandatory>
-        <data-type>varchar(255)</data-type>
+        <data-type>varchar(191)</data-type>
       </column>
       <index id="34" parent="5" name="username">
         <columns>username</columns>
@@ -62301,7 +62301,7 @@ agenda_id</columns>
       </column>
       <column id="40" parent="6" name="nome">
         <mandatory>1</mandatory>
-        <data-type>varchar(255)</data-type>
+        <data-type>varchar(191)</data-type>
         <default-expression>&apos;&apos;</default-expression>
       </column>
       <index id="41" parent="6" name="equipa_escalao">

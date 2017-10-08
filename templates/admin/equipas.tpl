@@ -20,12 +20,36 @@
                 <p>Nova password é: <span class="modal_content"></span>
                 </p>
                 <p>Guarde esta password</p>
-                
+
 
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Eliminar Equipa?</h4>
+            </div>
+
+            <div class="modal-body">
+                <p>Tem a certeza que pretende eliminar a equipas de cada conta
+                </p>
+                <p>Irá também eliminar todos os registos das mesmas!</p>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-danger btn-ok">Confirmar</a>
             </div>
         </div>
     </div>
@@ -50,7 +74,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-success btn-ok" data-dismiss="modal" data-content="{$equipa['username']}" data-toggle="modal" data-target="#show-reset">Ok</button>
+                <button type="button" class="btn btn-success btn-ok" data-dismiss="modal" data-content="{$equipa['username']}" data-toggle="modal" data-target="#show-reset">Confirmar</button>
             </div>
         </div>
     </div>
@@ -75,17 +99,17 @@
         </thead>
         <tbody>
         {foreach $equipas as $equipa}
-        <tr>
-            <td>{$equipa['equipa_id']}</td>
-            <td>{$equipa['username']}</td>
-            <td>{$equipa['nome']}</td>
-            <td>
+            <tr>
+                <td>{$equipa['equipa_id']}</td>
+                <td>{$equipa['username']}</td>
+                <td>{$equipa['nome']}</td>
+                <td>
                 <span class="pull-right">
                     <!--<button class="btn btn-xs btn" data-content="{$equipa['username']}" data-toggle="modal" data-target="#show-reset">Reset password</button>-->
                     <button class="btn btn-xs btn" data-content="{$equipa['username']}" data-toggle="modal" data-target="#confirm-reset">Reset password</button>
                 </span>
-            </td>
-        </tr>
+                </td>
+            </tr>
         {/foreach}
         </tbody>
     </table>
@@ -131,36 +155,50 @@
     </div>
 </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9" >
+            <h3>Apagar todas as equipas</h3>
+        </div>
+        <div class="col-sm-3" style="padding-top:15px">
+            <button type="submit" class="btn btn-danger" data-toggle="modal" data-href="{$BASE_URL}actions/admin/delete_all_equipaescalao.php" data-target="#confirm-delete">Apagar</button>
+        </div>
+
+    </div>
+</div>
+
 <script>
     $('#show-reset').on('show.bs.modal', function(e) {
-        
+
 
 
         $.post(BASE_URL + "api/admin/reset_password.php",
-        {
-            username: $(e.relatedTarget).data('content'),
-            
+                {
+                    username: $(e.relatedTarget).data('content'),
 
-        },
-        function(data){
-            new_password = $.parseJSON(data);
-            $('.equipa_nome2').html('<strong>' +  $(e.relatedTarget).data('content') + '</strong>');
-            $('.modal_content').html('<strong>' +  new_password + '</strong>');
 
-        });
+                },
+                function(data){
+                    new_password = $.parseJSON(data);
+                    $('.equipa_nome2').html('<strong>' +  $(e.relatedTarget).data('content') + '</strong>');
+                    $('.modal_content').html('<strong>' +  new_password + '</strong>');
 
-        
+                });
+
+
     });
 
     $('#confirm-reset').on('show.bs.modal', function(e) {
 
         $(this).find('.btn-ok').attr('data-content', $(e.relatedTarget).data('content'));
 
-        $('.equipa_nome1').html('<strong>' +  $(e.relatedTarget).data('content') + '</strong>');
 
 
 
+    });
 
+    $('#confirm-delete').on('show.bs.modal', function(e) {
+        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
     });
 
 
